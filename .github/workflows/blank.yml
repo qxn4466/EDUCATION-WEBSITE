@@ -1,0 +1,53 @@
+# This is a basic workflow to help you get started with Actions
+
+name: EDUCATION-WEBSITE
+
+on:
+  push:
+    branches: [main]
+
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # -----------------------------
+      # FRONTEND CHECK
+      # -----------------------------
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install frontend dependencies
+        run: npm ci
+        working-directory: frontend
+
+      - name: Build frontend
+        run: npm run build
+        working-directory: frontend
+
+      # -----------------------------
+      # BACKEND CHECK
+      # -----------------------------
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.3"
+
+      # Check Python syntax
+      - name: Check Python syntax
+        run: |
+          python -m compileall backend
+
+      # Optional lint check (recommended)
+      - name: Python lint
+        run: |
+          pip install ruff
+          ruff check backend || true
