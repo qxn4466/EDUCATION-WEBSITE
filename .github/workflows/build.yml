@@ -3,12 +3,8 @@ name: EDUCATION-WEBSITE
 
 on:
   push:
-<<<<<<< Updated upstream
     branches: [main, develop]
 
-=======
-    branches: [main, develop]  # Trigger on main and develop
->>>>>>> Stashed changes
   pull_request:
     branches: [main, develop]
 
