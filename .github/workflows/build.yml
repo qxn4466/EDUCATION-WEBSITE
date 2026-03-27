@@ -149,6 +149,14 @@ jobs:
           echo "✅ Both images ready for upload"
 
       # -----------------------------
+      # FIX PERMISSIONS (ADD THIS)
+      # -----------------------------
+      - name: Fix permissions
+        run: |
+          chmod 644 frontend-image.tar backend-image.tar
+          ls -la *.tar
+          
+      # -----------------------------
       # UPLOAD TO ORACLE VM
       # -----------------------------
       - name: Upload Docker Images to VM
