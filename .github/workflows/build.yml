@@ -92,44 +92,47 @@ jobs:
         uses: docker/setup-qemu-action@v3
 
       # -----------------------------
-      # BUILD FRONTEND IMAGE (ARM64)
+      # BUILD FRONTEND IMAGE (ARM64) - MANUAL
       # -----------------------------
       - name: Build Frontend Docker Image for ARM64
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: frontend/Dockerfile
-          platforms: linux/arm64
-          push: false
-          load: true
-          tags: education-frontend:arm64
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-
-      - name: Save Frontend Image
         run: |
+          docker buildx build --platform linux/arm64 \
+            -f frontend/Dockerfile \
+            -t education-frontend:arm64 \
+            --load \
+            .
           docker save education-frontend:arm64 -o frontend-image.tar
+          echo "Frontend image created:"
           ls -lh frontend-image.tar
 
       # -----------------------------
-      # BUILD BACKEND IMAGE (ARM64)
+      # BUILD BACKEND IMAGE (ARM64) - MANUAL
       # -----------------------------
       - name: Build Backend Docker Image for ARM64
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: backend/Dockerfile
-          platforms: linux/arm64
-          push: false
-          load: true
-          tags: education-backend:arm64
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-
-      - name: Save Backend Image
         run: |
+          docker buildx build --platform linux/arm64 \
+            -f backend/Dockerfile \
+            -t education-backend:arm64 \
+            --load \
+            .
           docker save education-backend:arm64 -o backend-image.tar
+          echo "Backend image created:"
           ls -lh backend-image.tar
+
+      # -----------------------------
+      # VERIFY IMAGES EXIST
+      # -----------------------------
+      - name: Verify images exist
+        run: |
+          if [ ! -f frontend-image.tar ]; then
+            echo "❌ frontend-image.tar not found!"
+            exit 1
+          fi
+          if [ ! -f backend-image.tar ]; then
+            echo "❌ backend-image.tar not found!"
+            exit 1
+          fi
+          echo "✅ Both images ready for upload"
 
       # -----------------------------
       # UPLOAD TO ORACLE VM
