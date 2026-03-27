@@ -1,17 +1,28 @@
-# This is a basic workflow to help you get started with Actions
-
+# This workflow builds, tests, and deploys to Oracle Cloud VM
 name: EDUCATION-WEBSITE
 
 on:
   push:
+<<<<<<< Updated upstream
     branches: [main, develop]
 
+=======
+    branches: [main, develop]  # Trigger on main and develop
+>>>>>>> Stashed changes
   pull_request:
     branches: [main, develop]
 
+env:
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  VM_HOST: ${{ secrets.VM_HOST }}
+  VM_USER: ${{ secrets.VM_USER }}
+  VM_SSH_KEY: ${{ secrets.VM_SSH_KEY }}
+
 jobs:
-  build:
+  # Job 1: Build and Test
+  build-and-test:
     runs-on: ubuntu-latest
+    name: Build & Test
 
     steps:
       - name: Checkout code
@@ -41,13 +52,175 @@ jobs:
         with:
           python-version: "3.12.3"
 
-      # Check Python syntax
+      - name: Install backend dependencies
+        run: |
+          pip install -r backend/requirements.txt
+        working-directory: backend
+
       - name: Check Python syntax
         run: |
           python -m compileall backend
 
-      # Optional lint check (recommended)
       - name: Python lint
         run: |
           pip install ruff
           ruff check backend || true
+
+  # Job 2: Build Docker Images and Deploy (only on push to main/develop)
+  docker-build-deploy:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    name: Docker Build & Deploy
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop')
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # -----------------------------
+      # SETUP DOCKER BUILDX
+      # -----------------------------
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Set up QEMU (for multi-platform builds)
+        uses: docker/setup-qemu-action@v3
+
+      # -----------------------------
+      # BUILD FRONTEND IMAGE (ARM64)
+      # -----------------------------
+      - name: Build Frontend Docker Image for ARM64
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: frontend/Dockerfile
+          platforms: linux/arm64
+          push: false
+          load: true
+          tags: education-frontend:arm64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Save Frontend Image
+        run: |
+          docker save education-frontend:arm64 -o frontend-image.tar
+          ls -lh frontend-image.tar
+
+      # -----------------------------
+      # BUILD BACKEND IMAGE (ARM64)
+      # -----------------------------
+      - name: Build Backend Docker Image for ARM64
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: backend/Dockerfile
+          platforms: linux/arm64
+          push: false
+          load: true
+          tags: education-backend:arm64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Save Backend Image
+        run: |
+          docker save education-backend:arm64 -o backend-image.tar
+          ls -lh backend-image.tar
+
+      # -----------------------------
+      # UPLOAD TO ORACLE VM
+      # -----------------------------
+      - name: Upload Docker Images to VM
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          port: 22
+          source: "frontend-image.tar,backend-image.tar,docker-compose.yml"
+          target: "/home/${{ secrets.VM_USER }}/"
+
+      # -----------------------------
+      # DEPLOY ON VM
+      # -----------------------------
+      - name: Deploy on Oracle VM
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          port: 22
+          script: |
+            # Create project directory if not exists
+            mkdir -p ~/education-website
+            cd ~/education-website
+            
+            # Move uploaded files
+            mv ~/frontend-image.tar . 2>/dev/null || true
+            mv ~/backend-image.tar . 2>/dev/null || true
+            mv ~/docker-compose.yml . 2>/dev/null || true
+            
+            # Load Docker images
+            echo "Loading Docker images..."
+            docker load -i frontend-image.tar
+            docker load -i backend-image.tar
+            
+            # Tag images correctly
+            docker tag education-frontend:arm64 education-website_frontend:latest
+            docker tag education-backend:arm64 education-website_backend:latest
+            
+            # Ensure environment files exist
+            mkdir -p frontend backend
+            cat > frontend/.env.local << 'EOF'
+            NEXT_PUBLIC_API_URL=http://152.67.4.81:5001/api/v1
+            NEXT_PUBLIC_SITE_URL=http://152.67.4.81:5000
+            NEXT_PUBLIC_WHATSAPP_NUMBER=+919876543210
+            EOF
+            
+            cat > backend/.env << 'EOF'
+            DATABASE_URL=postgresql://avinash:avinash123@db:5432/education_db
+            SECRET_KEY=8xNkZ9pLmQ2wRtyUioP3aSdFgHjKlZx1cVbNm4
+            DEBUG=False
+            APP_NAME=Vidya Classes
+            BACKEND_CORS_ORIGINS=["http://152.67.4.81:5000"]
+            EOF
+            
+            # Create SSL directory
+            mkdir -p ssl
+            
+            # Stop old containers and start new ones
+            echo "Starting containers..."
+            docker-compose down
+            docker-compose up -d
+            
+            # Clean up
+            rm -f ~/frontend-image.tar ~/backend-image.tar
+            rm -f frontend-image.tar backend-image.tar
+            
+            # Show running containers
+            echo "Running containers:"
+            docker ps
+            
+            # Wait for services to start
+            sleep 10
+            
+            # Health check
+            echo "Running health check..."
+            curl -f http://localhost:5001/health || echo "Health check failed"
+            curl -f http://localhost:5000 || echo "Frontend check failed"
+            
+            echo "Deployment completed at $(date)"
+
+      # -----------------------------
+      # NOTIFICATION (Optional)
+      # -----------------------------
+      - name: Deployment Success
+        if: success()
+        run: |
+          echo "✅ Deployment successful!"
+          echo "Frontend: http://152.67.4.81:5000"
+          echo "Backend API: http://152.67.4.81:5001/health"
+
+      - name: Deployment Failed
+        if: failure()
+        run: |
+          echo "❌ Deployment failed. Check GitHub Actions logs."
