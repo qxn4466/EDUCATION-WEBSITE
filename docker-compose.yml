@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: education-website_frontend:latest
+    ports:
+      - "5000:3000"
+    restart: always
+    depends_on:
+      - backend
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL=http://152.67.4.81:5001/api/v1
+    networks:
+      - education-network
+
+  backend:
+    image: education-website_backend:latest
+    ports:
+      - "5001:8001"
+    environment:
+      - DATABASE_URL=postgresql://avinash:avinash123@db:5432/education_db
+      - SECRET_KEY=8xNkZ9pLmQ2wRtyUioP3aSdFgHjKlZx1cVbNm4
+      - DEBUG=False
+      - BACKEND_CORS_ORIGINS=["http://152.67.4.81:5000"]
+    depends_on:
+      - db
+    restart: always
+    networks:
+      - education-network
+
+  db:
+    image: postgres:15-alpine
+    ports:
+      - "5002:5432"
+    environment:
+      - POSTGRES_USER=avinash
+      - POSTGRES_PASSWORD=avinash123
+      - POSTGRES_DB=education_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - education-network
+
+volumes:
+  postgres_data:
+
+networks:
+  education-network:
+    driver: bridge
