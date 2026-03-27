@@ -2,10 +2,9 @@
 name: EDUCATION-WEBSITE
 
 on:
-  push:
-    branches: [main, develop]
-
   pull_request:
+    branches: [main, develop]
+  push:
     branches: [main, develop]
 
 env:
@@ -15,7 +14,7 @@ env:
   VM_SSH_KEY: ${{ secrets.VM_SSH_KEY }}
 
 jobs:
-  # Job 1: Build and Test
+  # Job 1: Build and Test (runs on PR and Push)
   build-and-test:
     runs-on: ubuntu-latest
     name: Build & Test
@@ -61,11 +60,22 @@ jobs:
           pip install ruff
           ruff check backend || true
 
-  # Job 2: Build Docker Images and Deploy (only on push to main/develop)
-  docker-build-deploy:
+      # -----------------------------
+      # TEST DOCKER BUILD (runs on PR and Push)
+      # -----------------------------
+      - name: Test Docker build - Frontend
+        run: |
+          docker build -f frontend/Dockerfile -t test-frontend:latest .
+
+      - name: Test Docker build - Backend
+        run: |
+          docker build -f backend/Dockerfile -t test-backend:latest .
+
+  # Job 2: Deploy (ONLY on push AFTER merge)
+  deploy:
     needs: build-and-test
     runs-on: ubuntu-latest
-    name: Docker Build & Deploy
+    name: Deploy to Oracle VM
     if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop')
 
     steps:
@@ -206,7 +216,7 @@ jobs:
             echo "Deployment completed at $(date)"
 
       # -----------------------------
-      # NOTIFICATION (Optional)
+      # NOTIFICATION
       # -----------------------------
       - name: Deployment Success
         if: success()
