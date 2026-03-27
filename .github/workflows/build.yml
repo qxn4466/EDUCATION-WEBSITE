@@ -120,6 +120,20 @@ jobs:
           ls -lh backend-image.tar
 
       # -----------------------------
+      # DEBUG - LIST FILES (ADD THIS)
+      # -----------------------------
+      - name: Debug - List files
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Files in directory:"
+          ls -la
+          echo "Docker images:"
+          docker images
+          echo "Looking for tar files:"
+          ls -lh *.tar || echo "No tar files found"          
+
+      # -----------------------------
       # VERIFY IMAGES EXIST
       # -----------------------------
       - name: Verify images exist
