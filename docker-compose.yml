@@ -10,7 +10,7 @@ services:
       - backend
     environment:
       - NODE_ENV=production
-      - NEXT_PUBLIC_API_URL=http://vidyaclasses.in.net:5001/api/v1
+      - NEXT_PUBLIC_API_URL=http://vidyaclasses.in.net/api/v1
     networks:
       - education-network
 
@@ -23,7 +23,7 @@ services:
       - SECRET_KEY=8xNkZ9pLmQ2wRtyUioP3aSdFgHjKlZx1cVbNm4
       - DEBUG=False
       - APP_NAME=Vidya Classes
-      - BACKEND_CORS_ORIGINS=["http://152.67.4.81:5000"]
+      - BACKEND_CORS_ORIGINS=["https://vidyaclasses.in.net", "http://152.67.4.81:5000"]
     depends_on:
       - db
     restart: always
