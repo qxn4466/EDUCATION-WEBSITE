@@ -32,7 +32,7 @@ export default function TimingsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Back Button */}
-      <div className="fixed top-20 left-4 z-50 md:top-24 md:left-8">
+      <div className="hidden md:block fixed top-20 left-4 z-50 md:top-24 md:left-8">
         <button
           onClick={handleBack}
           className="flex items-center gap-2 bg-white shadow-lg hover:shadow-xl rounded-full px-3 py-1.5 md:px-4 md:py-2 text-gray-700 hover:text-blue-600 transition group text-sm md:text-base"

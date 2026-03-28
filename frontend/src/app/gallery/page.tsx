@@ -50,7 +50,7 @@ export default function GalleryPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Back Button */}
-      <div className="fixed top-24 left-4 z-50 md:top-28 md:left-8">
+      <div className="hidden md:block fixed top-24 left-4 z-50 md:top-28 md:left-8">
         <button
           onClick={handleBack}
           className="flex items-center gap-2 bg-white shadow-lg hover:shadow-xl rounded-full px-4 py-2 text-gray-700 hover:text-blue-600 transition group"
