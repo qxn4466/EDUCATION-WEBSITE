@@ -61,7 +61,7 @@ export default function ContactPage() {
             Contact Us
           </h1>
           <p className="text-lg md:text-xl text-center max-w-3xl mx-auto text-white/90">
-            Get in touch with us for any queries or admissions
+            Get in touch1 with us for any queries or admissions
           </p>
         </div>
         
@@ -111,7 +111,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-gray-100">
-            <h2 className="text-2xl font-bold mb-6 text-gray-800">Get in Touch</h2>
+            <h2 className="text-2xl font-bold mb-6 text-gray-800">Get in Touch1</h2>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
