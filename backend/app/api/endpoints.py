@@ -75,3 +75,8 @@ async def get_contacts(skip: int = 0, limit: int = 100, db: Session = Depends(ge
     """Get all contact submissions"""
     contacts = db.query(ContactSubmission).offset(skip).limit(limit).all()
     return contacts
+
+@router.get("/health")
+async def health_check():
+    """Health check endpoint"""
+    return {"status": "healthy"}
