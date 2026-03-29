@@ -30,7 +30,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Back Button */}
-      <div className="fixed top-24 left-4 z-50 md:top-28 md:left-8">
+      <div className="hidden md:block fixed top-24 left-4 z-50 md:top-28 md:left-8">
         <button
           onClick={() => router.back()}
           className="flex items-center gap-2 bg-white shadow-lg hover:shadow-xl rounded-full px-4 py-2 text-gray-700 hover:text-blue-600 transition group"
@@ -46,6 +46,7 @@ export default function ContactPage() {
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
         
         <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
+          {/* Image at top center */}
           <div className="flex justify-center mb-4">
             <div className="relative w-48 h-48 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl border-4 border-white/30">
               <Image

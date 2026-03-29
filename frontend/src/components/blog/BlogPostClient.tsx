@@ -1,89 +1,101 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
-import { FaArrowLeft, FaCalendarAlt, FaUser, FaTag, FaClock } from 'react-icons/fa';
-import Footer from '@/components/layout/Footer';
+import { FaArrowLeft, FaCalendarAlt, FaUser, FaClock, FaTag, FaShare, FaBookmark } from 'react-icons/fa';
 
 interface BlogPost {
   id: number;
+  slug: string;
   title: string;
   content: string;
   date: string;
   author: string;
   category: string;
   readTime: string;
-  slug: string;
 }
 
 export default function BlogPostClient({ post }: { post: BlogPost }) {
-  const handleBack = () => {
-    window.history.back();
-  };
-
   return (
-    <>
-      {/* Back Button */}
-      <div className="fixed top-24 left-4 z-50 md:top-28 md:left-8">
-        <button
-          onClick={handleBack}
-          className="flex items-center gap-2 bg-white shadow-lg hover:shadow-xl rounded-full px-4 py-2 text-gray-700 hover:text-blue-600 transition group"
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+      <div className="container mx-auto px-4 py-8 max-w-4xl">
+        {/* Back button */}
+        <Link 
+          href="/blog" 
+          className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6 transition-colors group"
         >
-          <FaArrowLeft className="group-hover:-translate-x-1 transition" />
-          <span className="text-sm font-medium">Back</span>
-        </button>
-      </div>
+          <FaArrowLeft className="mr-2 group-hover:-translate-x-1 transition-transform" /> 
+          Back to all articles
+        </Link>
 
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white overflow-hidden">
-        <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
-          <div className="flex justify-center mb-4">
-            <div className="relative w-48 h-48 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl border-4 border-white/30">
-              <Image
-                src="/images/hero/image4.jpeg"
-                alt="Vidya Classes"
-                fill
-                className="object-cover"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
-            </div>
+        {/* Article Header */}
+        <div className="bg-white rounded-2xl shadow-xl p-8 mb-8 border border-gray-100">
+          {/* Category Badge */}
+          <div className="mb-4">
+            <span className="inline-block bg-gradient-to-r from-blue-500 to-green-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
+              {post.category}
+            </span>
           </div>
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-3 px-4">
+          
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 leading-tight">
             {post.title}
           </h1>
-          <div className="flex flex-wrap justify-center gap-3 text-xs md:text-sm text-white/80">
-            <span className="flex items-center gap-1"><FaCalendarAlt size={12} /> {post.date}</span>
-            <span className="flex items-center gap-1"><FaUser size={12} /> {post.author}</span>
-            <span className="flex items-center gap-1"><FaTag size={12} /> {post.category}</span>
-            <span className="flex items-center gap-1"><FaClock size={12} /> {post.readTime}</span>
+          
+          <div className="flex flex-wrap gap-6 text-gray-600 border-t border-b border-gray-100 py-4">
+            <div className="flex items-center">
+              <FaCalendarAlt className="mr-2 text-blue-500" />
+              <span>{post.date}</span>
+            </div>
+            <div className="flex items-center">
+              <FaUser className="mr-2 text-green-500" />
+              <span className="font-medium">{post.author}</span>
+            </div>
+            <div className="flex items-center">
+              <FaClock className="mr-2 text-orange-500" />
+              <span>{post.readTime}</span>
+            </div>
+          </div>
+          
+          {/* Social Share Buttons (optional) */}
+          <div className="flex gap-3 mt-6">
+            <button className="p-2 bg-gray-100 rounded-full hover:bg-blue-100 transition-colors">
+              <FaShare className="text-gray-600" />
+            </button>
+            <button className="p-2 bg-gray-100 rounded-full hover:bg-green-100 transition-colors">
+              <FaBookmark className="text-gray-600" />
+            </button>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 w-full">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-auto">
-            <path fill="#ffffff" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-          </svg>
+
+        {/* Article Content */}
+        <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div className="p-8 md:p-12">
+            <div 
+              className="prose prose-lg prose-blue max-w-none
+                         prose-headings:font-bold prose-headings:text-gray-800
+                         prose-h1:text-3xl prose-h1:mb-6
+                         prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4
+                         prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3
+                         prose-p:text-gray-700 prose-p:leading-relaxed
+                         prose-ul:list-disc prose-ul:pl-6
+                         prose-li:mb-2
+                         prose-strong:text-blue-600
+                         prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+          </div>
+        </div>
+
+        {/* Footer Navigation */}
+        <div className="mt-8 text-center">
+          <Link 
+            href="/blog" 
+            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-lg hover:from-blue-700 hover:to-green-700 transition-all shadow-md"
+          >
+            <FaArrowLeft className="mr-2" /> 
+            Browse More Articles
+          </Link>
         </div>
       </div>
-
-      {/* Article Content */}
-      <div className="container mx-auto px-4 py-8 md:py-10 max-w-4xl">
-        <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
-          <div className="prose prose-lg max-w-none">
-            <p className="text-gray-700 leading-relaxed whitespace-pre-line text-base md:text-lg">
-              {post.content}
-            </p>
-          </div>
-          <div className="mt-8 pt-6 border-t border-gray-200">
-            <Link href="/blog" className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-800 transition">
-              ← Back to all articles
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      <Footer />
-    </>
+    </div>
   );
 }

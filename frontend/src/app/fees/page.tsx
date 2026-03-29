@@ -21,10 +21,9 @@ export default function FeesPage() {
   const feePlans = [
     {
       className: "Class 1-5",
-      amount: 2500,
       duration: "Monthly",
       features: [
-        "All Subjects",
+        "PCM/PCB",
         "Study Material Included",
         "Weekly Tests",
         "Progress Reports"
@@ -34,7 +33,6 @@ export default function FeesPage() {
     },
     {
       className: "Class 6-8",
-      amount: 3000,
       duration: "Monthly",
       features: [
         "All Subjects",
@@ -49,7 +47,6 @@ export default function FeesPage() {
     },
     {
       className: "Class 9-10",
-      amount: 3500,
       duration: "Monthly",
       features: [
         "All Subjects",
@@ -64,7 +61,6 @@ export default function FeesPage() {
     },
     {
       className: "Class 11-12",
-      amount: 4500,
       duration: "Monthly",
       features: [
         "Physics, Chemistry, Maths/Bio",
@@ -79,7 +75,6 @@ export default function FeesPage() {
     },
     {
       className: "JEE/NEET",
-      amount: 5500,
       duration: "Monthly",
       features: [
         "Complete Syllabus Coverage",
@@ -94,12 +89,16 @@ export default function FeesPage() {
     }
   ];
 
+  const handleBack = () => {
+    window.history.back();
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Back Button */}
-      <div className="fixed top-24 left-4 z-50 md:top-28 md:left-8">
+      <div className="hidden md:block fixed top-24 left-4 z-50 md:top-28 md:left-8">
         <button
-          onClick={() => router.back()}
+          onClick={handleBack}
           className="flex items-center gap-2 bg-white shadow-lg hover:shadow-xl rounded-full px-4 py-2 text-gray-700 hover:text-blue-600 transition group"
         >
           <FaArrowLeft className="group-hover:-translate-x-1 transition" />
@@ -115,7 +114,7 @@ export default function FeesPage() {
         <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
           {/* Image at top center */}
           <div className="flex justify-center mb-4">
-            <div className="relative w-48 h-48 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl border-4 border-white/30">
+            <div className="relative w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden shadow-2xl border-4 border-white/30">
               <Image
                 src="/images/hero/image4.jpeg"
                 alt="Vidya Classes"
@@ -140,7 +139,7 @@ export default function FeesPage() {
         </div>
       </div>
 
-      {/* Trust Badges - Larger Size */}
+      {/* Trust Badges */}
       <div className="bg-gradient-to-r from-blue-50 via-green-50 to-orange-50 py-8 md:py-10">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-8 md:gap-12">
@@ -188,9 +187,7 @@ export default function FeesPage() {
               <div className={`bg-gradient-to-r ${plan.color} p-5 md:p-6 text-white`}>
                 <h3 className="text-xl md:text-2xl font-bold mb-2">{plan.className}</h3>
                 <div className="flex items-baseline gap-1">
-                  <FaRupeeSign className="text-xl md:text-2xl" />
-                  <span className="text-3xl md:text-4xl font-bold">{plan.amount}</span>
-                  <span className="text-xs md:text-sm opacity-90">/{plan.duration}</span>
+                  <span className="text-xs md:text-sm opacity-90">Contact for fee details</span>
                 </div>
               </div>
               <div className="p-5 md:p-6">
@@ -202,14 +199,12 @@ export default function FeesPage() {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2 md:py-3 rounded-lg font-semibold hover:scale-105 transition">
                 <Link
-                  href="/contact"
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2 md:py-3 rounded-lg font-semibold hover:scale-105 transition block text-center"
+                  href="/#quick-enquiry"
+                  className="block w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2 md:py-3 rounded-lg font-semibold hover:scale-105 transition text-center"
                 >
-                  Enroll Now
+                  Enquire Now
                 </Link>
-                </button>
               </div>
             </div>
           ))}

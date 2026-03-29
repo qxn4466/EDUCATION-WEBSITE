@@ -194,10 +194,9 @@ export default function Home() {
       <section className="py-14 bg-white">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
           {[
-            ['15+', 'Years Experience'],
-            ['5000+', 'Students'],
+            ['3+', 'Years Experience'],
+            ['1000+', 'Students'],
             ['100%', 'Satisfaction'],
-            ['50+', 'Awards'],
           ].map(([num, label]) => (
             <div key={label}>
               <div className="text-3xl font-bold text-blue-600">{num}</div>

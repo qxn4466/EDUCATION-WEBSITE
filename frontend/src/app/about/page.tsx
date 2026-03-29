@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { 
   FaChalkboardTeacher, 
@@ -21,25 +22,27 @@ export default function AboutPage() {
   const router = useRouter();
 
   const stats = [
-    { number: "15+", label: "Years of Experience", icon: FaChalkboardTeacher, color: "from-blue-500 to-blue-600" },
-    { number: "5000+", label: "Students Taught", icon: FaUsers, color: "from-green-500 to-green-600" },
+    { number: "Since 2023", label: "Years of Excellence", icon: FaChalkboardTeacher, color: "from-blue-500 to-blue-600" },
+    { number: "1000+", label: "Students Taught", icon: FaUsers, color: "from-green-500 to-green-600" },
     { number: "100%", label: "Parent Satisfaction", icon: FaHeart, color: "from-orange-500 to-orange-600" },
-    { number: "50+", label: "Awards Won", icon: FaTrophy, color: "from-purple-500 to-purple-600" }
   ];
 
   const values = [
     { icon: FaLightbulb, title: "Innovation", description: "Embracing modern teaching methods", color: "from-blue-500 to-blue-600" },
     { icon: FaHeart, title: "Integrity", description: "Building character and moral values", color: "from-green-500 to-green-600" },
     { icon: FaUsers, title: "Inclusivity", description: "Welcoming students from all backgrounds", color: "from-orange-500 to-orange-600" },
-    { icon: FaTrophy, title: "Excellence", description: "Striving for the highest standards", color: "from-purple-500 to-purple-600" }
   ];
+
+  const handleBack = () => {
+    window.history.back();
+  };
 
   return (
     <div className="min-h-screen bg-white">
       {/* Back Button - Fixed at top left */}
-      <div className="fixed top-24 left-4 z-50 md:top-28 md:left-8">
+      <div className="hidden md:block fixed top-24 left-4 z-50 md:top-28 md:left-8">
         <button
-          onClick={() => router.back()}
+          onClick={handleBack}
           className="flex items-center gap-2 bg-white shadow-lg hover:shadow-xl rounded-full px-4 py-2 text-gray-700 hover:text-blue-600 transition group"
         >
           <FaArrowLeft className="group-hover:-translate-x-1 transition" />
@@ -47,13 +50,24 @@ export default function AboutPage() {
         </button>
       </div>
 
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white overflow-hidden pt-16">
-        {/* Decorative blobs */}
+      {/* Hero Section with Logo/Image */}
+      <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white overflow-hidden pt-12">
         <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
         
-        <div className="container mx-auto px-4 py-16 md:py-20 relative z-10">
+        <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
+          {/* Image at top center */}
+          <div className="flex justify-center mb-4">
+            <div className="relative w-48 h-48 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl border-4 border-white/30">
+              <Image
+                src="/images/hero/image4.jpeg"
+                alt="Vidya Classes"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+          
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6">
             About Vidya Coaching Classes
           </h1>
@@ -72,7 +86,7 @@ export default function AboutPage() {
 
       {/* Stats Section */}
       <div className="container mx-auto px-4 mt-8 md:mt-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {stats.map((stat, idx) => {
             const Icon = stat.icon;
             return (
@@ -80,7 +94,7 @@ export default function AboutPage() {
                 <div className={`bg-gradient-to-r ${stat.color} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition`}>
                   <Icon className="text-3xl text-white" />
                 </div>
-                <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
+                <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
                   {stat.number}
                 </div>
                 <div className="text-gray-600 text-sm mt-1">{stat.label}</div>
@@ -168,7 +182,7 @@ export default function AboutPage() {
             The principles that guide everything we do
           </p>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {values.map((value, idx) => {
               const Icon = value.icon;
               return (

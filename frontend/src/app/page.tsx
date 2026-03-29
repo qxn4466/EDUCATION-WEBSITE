@@ -21,6 +21,10 @@ import {
   FaChartLine,
   FaUserCheck,
   FaSchool,
+  FaLightbulb,
+  FaQuestion,
+  FaCompass,
+  FaHandsHelping,
 } from 'react-icons/fa';
 
 export default function Home() {
@@ -35,13 +39,13 @@ export default function Home() {
 
   const navigation = [
     { name: 'Home', href: '/', color: 'text-blue-600', hoverColor: 'hover:text-blue-700', bgColor: 'bg-blue-600' },
-    { name: 'About', href: '/about', color: 'text-blue-600', hoverColor: 'hover:text-green-700', bgColor: 'bg-green-600' },
-    { name: 'Subjects', href: '/subjects', color: 'text-blue-600', hoverColor: 'hover:text-purple-700', bgColor: 'bg-purple-600' },
-    { name: 'Timings', href: '/timings', color: 'text-blue-600', hoverColor: 'hover:text-orange-700', bgColor: 'bg-orange-600' },
-    { name: 'Fees', href: '/fees', color: 'text-blue-600', hoverColor: 'hover:text-red-700', bgColor: 'bg-red-600' },
-    { name: 'Gallery', href: '/gallery', color: 'text-blue-600', hoverColor: 'hover:text-pink-700', bgColor: 'bg-pink-600' },
-    { name: 'Blog', href: '/blog', color: 'text-blue-600', hoverColor: 'hover:text-indigo-700', bgColor: 'bg-indigo-600' },
-    { name: 'Contact', href: '/contact', color: 'text-blue-600', hoverColor: 'hover:text-teal-700', bgColor: 'bg-teal-600' },
+    { name: 'About', href: '/about', color: 'text-green-600', hoverColor: 'hover:text-green-700', bgColor: 'bg-green-600' },
+    { name: 'Subjects', href: '/subjects', color: 'text-purple-600', hoverColor: 'hover:text-purple-700', bgColor: 'bg-purple-600' },
+    { name: 'Timings', href: '/timings', color: 'text-orange-600', hoverColor: 'hover:text-orange-700', bgColor: 'bg-orange-600' },
+    { name: 'Fees', href: '/fees', color: 'text-red-600', hoverColor: 'hover:text-red-700', bgColor: 'bg-red-600' },
+    { name: 'Gallery', href: '/gallery', color: 'text-pink-600', hoverColor: 'hover:text-pink-700', bgColor: 'bg-pink-600' },
+    { name: 'Blog', href: '/blog', color: 'text-indigo-600', hoverColor: 'hover:text-indigo-700', bgColor: 'bg-indigo-600' },
+    { name: 'Contact', href: '/contact', color: 'text-teal-600', hoverColor: 'hover:text-teal-700', bgColor: 'bg-teal-600' },
   ];
 
   // Auto slide
@@ -71,25 +75,25 @@ export default function Home() {
       <nav className="bg-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
-            {/* Logo with Trust, Success, Care */}
+            {/* Logo with Trust, Success, Care - Larger Font */}
             <Link href="/" className="flex flex-col">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-3">
                 <div className="flex -space-x-1">
-                  <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                    <FaGraduationCap className="text-white text-sm" />
+                  <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
+                    <FaGraduationCap className="text-white text-lg" />
                   </div>
-                  <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                    <FaHeart className="text-white text-sm" />
+                  <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+                    <FaHeart className="text-white text-lg" />
                   </div>
-                  <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
-                    <FaStar className="text-white text-sm" />
+                  <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center">
+                    <FaStar className="text-white text-lg" />
                   </div>
                 </div>
                 <div>
-                  <span className="text-xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
+                  <span className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
                     Vidya Coaching Classes
                   </span>
-                  <div className="flex gap-3 text-xs mt-0.5">
+                  <div className="flex gap-3 text-xs mt-1">
                     <span className="text-blue-600 font-semibold flex items-center gap-1">
                       <FaShieldAlt size={10} /> TRUST
                     </span>
@@ -151,7 +155,7 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-72 h-72 bg-blue-200 rounded-full blur-3xl opacity-20 animate-pulse"></div>
         <div className="absolute top-0 right-0 w-72 h-72 bg-purple-200 rounded-full blur-3xl opacity-20 animate-pulse"></div>
 
-        <div className="container mx-auto px-4 py-10 md:py-16">
+        <div className="container mx-auto px-4 py-8 md:py-12">
           {/* SLIDER */}
           <div className="relative w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
             <div
@@ -163,7 +167,8 @@ export default function Home() {
               {images.map((img, i) => (
                 <div
                   key={img}
-                  className="min-w-full flex-shrink-0 relative h-[300px] md:h-[500px] overflow-hidden"
+                  className="min-w-full flex-shrink-0 relative overflow-hidden"
+                  style={{ height: 'clamp(250px, 50vw, 450px)' }}
                 >
                   {/* Clear Image - No overlay */}
                   <Image
@@ -193,31 +198,31 @@ export default function Home() {
             </div>
           </div>
 
-          {/* TEXT */}
-          <div className="text-center mt-10 max-w-3xl mx-auto">
-            <div className="inline-block px-4 py-1 bg-gradient-to-r from-blue-100 via-green-100 to-orange-100 text-blue-600 rounded-full text-sm font-semibold mb-4">
-              Welcome to Vidya Coaching Classes
+          {/* TEXT - Responsive padding and font sizes */}
+          <div className="text-center mt-6 md:mt-10 max-w-3xl mx-auto px-2">
+            <div className="inline-block px-3 md:px-4 py-1 bg-gradient-to-r from-blue-100 via-green-100 to-orange-100 text-blue-600 rounded-full text-xs md:text-sm font-semibold mb-3 md:mb-4">
+              Established in 2023 | Vidya Coaching Classes
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
+            <h1 className="text-2xl sm:text-3xl md:text-3xl font-bold mb-3 md:mb-4 bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
               Gives Quality Education
             </h1>
 
-            <p className="text-gray-600 text-lg md:text-xl mb-6">
+            <p className="text-gray-600 text-base md:text-xl mb-4 md:mb-6 px-2">
               Instilling Values Along with Knowledge
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-full font-semibold flex items-center justify-center gap-2 hover:scale-105 transition"
+                className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-5 md:px-6 py-2 md:py-3 rounded-full font-semibold flex items-center justify-center gap-2 hover:scale-105 transition text-sm md:text-base"
               >
                 Enroll Now <FaArrowRight />
               </Link>
 
               <Link
                 href="/about"
-                className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-50 transition"
+                className="border-2 border-blue-600 text-blue-600 px-5 md:px-6 py-2 md:py-3 rounded-full font-semibold hover:bg-blue-50 transition text-sm md:text-base"
               >
                 Learn More
               </Link>
@@ -225,6 +230,38 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Mission Statement Banner */}
+      <div className="bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white py-12 md:py-16">
+        <div className="container mx-auto px-4 text-center">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">We Are Your Teacher</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition">
+                <FaQuestion className="text-3xl mx-auto mb-2" />
+                <p className="text-sm">If you have questions, we give you answers</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition">
+                <FaLightbulb className="text-3xl mx-auto mb-2" />
+                <p className="text-sm">If you have confusions, we give you clarity</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition">
+                <FaStar className="text-3xl mx-auto mb-2" />
+                <p className="text-sm">If you have dreams, we give you wings</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition">
+                <FaHeart className="text-3xl mx-auto mb-2" />
+                <p className="text-sm">If you feel low, we make you confident</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition">
+                <FaCompass className="text-3xl mx-auto mb-2" />
+                <p className="text-sm">If you are lost, we show you the way</p>
+              </div>
+            </div>
+            <p className="mt-8 text-lg font-semibold">Vidya Classes Dedicated to Give You the Best Education</p>
+          </div>
+        </div>
+      </div>
 
       {/* TRUST, SUCCESS, CARE SECTION */}
       <section className="py-12 bg-gradient-to-r from-blue-50 via-green-50 to-orange-50">
@@ -255,24 +292,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="py-14 bg-white">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto text-center">
-          {[
-            ['15+', 'Years Experience'],
-            ['5000+', 'Students'],
-            ['100%', 'Satisfaction'],
-            ['50+', 'Awards'],
-          ].map(([num, label]) => (
-            <div key={label} className="group">
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent group-hover:scale-110 transition">
-                {num}
-              </div>
-              <div className="text-gray-600 mt-2 text-sm md:text-base">{label}</div>
-            </div>
-          ))}
+{/* STATS - Updated with correct establishment year */}
+<section className="py-14 bg-white">
+  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto text-center">
+    {[
+      ['Since 2023', 'Years of Excellence'],
+      ['1000+', 'Students'],
+      ['100%', 'Satisfaction'],
+    ].map(([num, label]) => (
+      <div key={label} className="group">
+        <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent group-hover:scale-110 transition">
+          {num}
         </div>
-      </section>
+        <div className="text-gray-500 mt-1 text-xs md:text-sm">{label}</div>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* WHY CHOOSE US - 8 Feature Cards */}
       <section className="py-16 bg-gray-50">

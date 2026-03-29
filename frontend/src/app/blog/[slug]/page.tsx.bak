@@ -1,0 +1,215 @@
+import Link from 'next/link';
+import Image from 'next/image';
+import Footer from '@/components/layout/Footer';
+
+// Blog posts data
+const blogPosts = {
+  'effective-study-techniques': {
+    title: "10 Effective Study Techniques for Exam Success",
+    content: `Study techniques are essential for academic success. Here are 10 proven methods:
+
+1) Active Recall - test yourself regularly. Close the book and try to recall what you've learned.
+
+2) Spaced Repetition - review material at increasing intervals. Instead of cramming, spread your study sessions over days.
+
+3) Pomodoro Technique - study in focused 25-minute blocks. Take 5-minute breaks between sessions.
+
+4) Mind Mapping - visualize connections between concepts. Create diagrams that show how topics relate.
+
+5) Teach Others - explaining reinforces learning. When you teach someone else, you identify gaps in your own understanding.
+
+6) Practice Tests - simulate exam conditions. Regular testing helps identify weak areas.
+
+7) Study Groups - collaborate with peers. Discussing concepts with others provides new perspectives.
+
+8) Healthy Lifestyle - sleep, exercise, nutrition matter. A well-rested mind absorbs information better.
+
+9) Organized Notes - keep materials structured. Use headings, bullet points, and color coding.
+
+10) Goal Setting - set specific, achievable targets. Break large study tasks into smaller goals.`,
+    date: "March 15, 2024",
+    author: "Dr. Sarah Johnson",
+    category: "Study Tips"
+  },
+  'importance-of-mathematics': {
+    title: "The Importance of Mathematics in Daily Life",
+    content: `Mathematics is everywhere! From managing finances and calculating budgets to cooking measurements and planning travel routes, math is essential.
+
+It develops critical thinking, logical reasoning, and problem-solving skills. In careers like engineering, medicine, business, and technology, math forms the foundation.
+
+Understanding math helps make informed decisions, analyze data, and think systematically. It's not just about numbers - it's about developing a structured approach to life's challenges.`,
+    date: "March 10, 2024",
+    author: "Prof. Rajesh Kumar",
+    category: "Mathematics"
+  },
+  'career-path-after-10th': {
+    title: "Choosing the Right Career Path After 10th",
+    content: `Choosing a career after 10th is a crucial decision. Consider these options:
+
+1) Science Stream - for engineering, medicine, research careers.
+
+2) Commerce Stream - for business, finance, accounting careers.
+
+3) Arts/Humanities - for law, design, social sciences.
+
+4) Vocational Courses - for skill-based careers.
+
+Evaluate your interests, strengths, and long-term goals. Research career options, talk to professionals, and consider future job market trends.`,
+    date: "March 5, 2024",
+    author: "Ms. Priya Sharma",
+    category: "Career Guidance"
+  },
+  'manage-exam-stress': {
+    title: "How to Manage Stress During Exams",
+    content: `Exam stress is common but manageable. Tips for staying calm:
+
+1) Create a realistic study schedule.
+
+2) Take regular breaks - 5 minutes every hour.
+
+3) Practice deep breathing exercises.
+
+4) Get adequate sleep - 7-8 hours is essential.
+
+5) Stay hydrated and eat healthy.
+
+6) Exercise - even a 10-minute walk helps.
+
+7) Avoid comparing with others.
+
+8) Talk to parents or teachers about concerns.
+
+9) Focus on understanding, not just memorizing.
+
+10) Remember - exams don't define your worth.`,
+    date: "February 28, 2024",
+    author: "Dr. Anjali Mehta",
+    category: "Wellness"
+  },
+  'future-of-education': {
+    title: "The Future of Education: Technology in Classrooms",
+    content: `Technology is revolutionizing education:
+
+1) AI-powered personalized learning.
+
+2) Virtual Reality creates immersive learning experiences.
+
+3) Online platforms enable global collaboration.
+
+4) Digital tools make complex concepts visual and interactive.
+
+5) Gamification increases engagement and motivation.
+
+6) Data analytics helps identify learning gaps.
+
+7) Remote learning makes education accessible.
+
+8) Digital assessments provide instant feedback.
+
+The classroom of tomorrow will blend traditional teaching with cutting-edge technology.`,
+    date: "February 20, 2024",
+    author: "Mr. Amit Verma",
+    category: "EdTech"
+  },
+  'parent-teacher-collaboration': {
+    title: "Parent-Teacher Collaboration for Student Success",
+    content: `Strong parent-teacher partnerships benefit students immensely. How to collaborate effectively:
+
+1) Regular communication - attend parent-teacher meetings.
+
+2) Share observations about the child's learning style.
+
+3) Support homework and study routines at home.
+
+4) Celebrate achievements together.
+
+5) Address concerns promptly and respectfully.
+
+6) Create consistent expectations between home and school.
+
+7) Participate in school activities when possible.
+
+8) Trust teachers' expertise while sharing your insights.
+
+Together, we can create the best environment for student growth.`,
+    date: "February 15, 2024",
+    author: "Ms. Neha Gupta",
+    category: "Parenting"
+  }
+};
+
+// Generate static paths
+export async function generateStaticParams() {
+  return Object.keys(blogPosts).map((slug) => ({
+    slug: slug,
+  }));
+}
+
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
+  const post = blogPosts[params.slug as keyof typeof blogPosts];
+
+  if (!post) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Article Not Found</h1>
+          <Link href="/blog" className="text-blue-600 hover:underline">Back to Blog</Link>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Back Button */}
+      <div className="hidden md:block fixed top-24 left-4 z-50 md:top-28 md:left-8">
+        <button
+          onClick={() => window.history.back()}
+          className="flex items-center gap-2 bg-white shadow-lg hover:shadow-xl rounded-full px-4 py-2 text-gray-700 hover:text-blue-600 transition group"
+        >
+          <span className="text-sm font-medium">← Back</span>
+        </button>
+      </div>
+
+      {/* Hero Section */}
+      <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white py-16 md:py-20">
+        <div className="container mx-auto px-4 text-center">
+          <div className="flex justify-center mb-6">
+            <div className="relative w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden shadow-2xl border-4 border-white/30">
+              <Image
+                src="/images/hero/image4.jpeg"
+                alt="Vidya Classes"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            {post.title}
+          </h1>
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-white/80">
+            <span>📅 {post.date}</span>
+            <span>✍️ {post.author}</span>
+            <span>📁 {post.category}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Article Content */}
+      <div className="container mx-auto px-4 py-12 max-w-3xl">
+        <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+          <div className="text-gray-700 leading-relaxed whitespace-pre-line text-base md:text-lg">
+            {post.content}
+          </div>
+          <div className="mt-8 pt-6 border-t border-gray-200">
+            <Link href="/blog" className="text-blue-600 font-semibold hover:text-blue-800">
+              ← Back to all articles
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <Footer />
+    </div>
+  );
+}
