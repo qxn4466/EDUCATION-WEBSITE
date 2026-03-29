@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { 
   FaCalculator, 
@@ -47,26 +48,41 @@ export default function SubjectsPage() {
     { name: "K-CET", icon: FaUniversity, color: "from-purple-500 to-purple-600", description: "Karnataka Common Entrance Test", duration: "Crash Course Available" },
   ];
 
+  const handleBack = () => {
+    window.history.back();
+  };
+
   return (
     <div className="min-h-screen bg-white">
-    {/* Back Button */}
-    <div className="hidden md:block fixed top-24 left-4 z-50 md:top-28 md:left-8">
-    <button
-        onClick={() => window.history.back()}
-        className="flex items-center gap-2 bg-white shadow-lg hover:shadow-xl rounded-full px-4 py-2 text-gray-700 hover:text-blue-600 transition group"
-    >
-        <FaArrowLeft className="group-hover:-translate-x-1 transition" />
-        <span className="text-sm font-medium">Back</span>
-    </button>
-
-    </div>
-    
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white overflow-hidden pt-16">
+      {/* Back Button */}
+      <div className="hidden md:block fixed top-24 left-4 z-50 md:top-28 md:left-8">
+        <button
+          onClick={handleBack}
+          className="flex items-center gap-2 bg-white shadow-lg hover:shadow-xl rounded-full px-4 py-2 text-gray-700 hover:text-blue-600 transition group"
+        >
+          <FaArrowLeft className="group-hover:-translate-x-1 transition" />
+          <span className="text-sm font-medium">Back</span>
+        </button>
+      </div>
+      
+      {/* Hero Section with Logo/Image */}
+      <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white overflow-hidden pt-12">
         <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
         
-        <div className="container mx-auto px-4 py-16 md:py-20 relative z-10">
+        <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
+          {/* Image at top center */}
+          <div className="flex justify-center mb-4">
+            <div className="relative w-48 h-48 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl border-4 border-white/30">
+              <Image
+                src="/images/hero/image4.jpeg"
+                alt="Vidya Classes"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+          
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6">
             Subjects & Classes
           </h1>

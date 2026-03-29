@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',  // This creates the 'out' folder for static files
+  output: 'export',
+  trailingSlash: true,   // ✅ THIS FIXES YOUR ISSUE
   images: {
-    unoptimized: true,  // Required for static export
+    unoptimized: true,
   },
 }
 
-module.exports = nextConfig
+module.exports = nextConfig;

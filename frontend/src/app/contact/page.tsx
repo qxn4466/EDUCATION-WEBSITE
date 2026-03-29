@@ -46,6 +46,7 @@ export default function ContactPage() {
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
         
         <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
+          {/* Image at top center */}
           <div className="flex justify-center mb-4">
             <div className="relative w-48 h-48 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl border-4 border-white/30">
               <Image
