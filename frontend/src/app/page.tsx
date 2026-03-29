@@ -42,7 +42,7 @@ export default function Home() {
     { name: 'About', href: '/about', color: 'text-green-600', hoverColor: 'hover:text-green-700', bgColor: 'bg-green-600' },
     { name: 'Subjects', href: '/subjects', color: 'text-purple-600', hoverColor: 'hover:text-purple-700', bgColor: 'bg-purple-600' },
     { name: 'Timings', href: '/timings', color: 'text-orange-600', hoverColor: 'hover:text-orange-700', bgColor: 'bg-orange-600' },
-    { name: 'Fees', href: '/fees', color: 'text-red-600', hoverColor: 'hover:text-red-700', bgColor: 'bg-red-600' },
+    { name: 'Admissions', href: '/Admissions', color: 'text-red-600', hoverColor: 'hover:text-red-700', bgColor: 'bg-red-600' },
     { name: 'Gallery', href: '/gallery', color: 'text-pink-600', hoverColor: 'hover:text-pink-700', bgColor: 'bg-pink-600' },
     { name: 'Blog', href: '/blog', color: 'text-indigo-600', hoverColor: 'hover:text-indigo-700', bgColor: 'bg-indigo-600' },
     { name: 'Contact', href: '/contact', color: 'text-teal-600', hoverColor: 'hover:text-teal-700', bgColor: 'bg-teal-600' },
@@ -235,7 +235,7 @@ export default function Home() {
       <div className="bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">We Are Your Teacher</h2>
+            {/* <h2 className="text-2xl md:text-3xl font-bold mb-6">We Are Your Teacher</h2> */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition">
                 <FaQuestion className="text-3xl mx-auto mb-2" />

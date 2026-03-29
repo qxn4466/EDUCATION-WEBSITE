@@ -348,7 +348,7 @@ export default function Home() {
                 </li>
                 <li>
                   <Link href="/fees" className="text-gray-400 hover:text-white">
-                    Fees Details
+                    Admission Details
                   </Link>
                 </li>
               </ul>
@@ -357,8 +357,7 @@ export default function Home() {
             <div>
               <h3 className="text-xl font-bold mb-4">Contact Info</h3>
               <ul className="space-y-2 text-gray-400">
-                <li>📞 +91 98765 43210</li>
-                <li>📞 +91 98765 43211</li>
+                <li>📞 +91 87123 46960</li>
                 <li>✉️ info@eduinstitute.com</li>
                 <li>📍 123, Education Street, City</li>
               </ul>

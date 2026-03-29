@@ -62,7 +62,7 @@ export default function ContactPage() {
             Contact Us
           </h1>
           <p className="text-lg md:text-xl text-center max-w-3xl mx-auto text-white/90">
-            Get in touch1 with us for any queries or admissions
+            Get in touch with us for any queries or admissions
           </p>
         </div>
         
@@ -112,7 +112,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-gray-100">
-            <h2 className="text-2xl font-bold mb-6 text-gray-800">Get in Touch1</h2>
+            <h2 className="text-2xl font-bold mb-6 text-gray-800">Get in Touch</h2>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -120,8 +120,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="font-semibold text-gray-800">Phone</p>
-                  <p className="text-gray-600">+91 98765 43210</p>
-                  <p className="text-gray-600">+91 98765 43211</p>
+                  <p className="text-gray-600">+91 87123 46960</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -130,8 +129,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="font-semibold text-gray-800">Email</p>
-                  <p className="text-gray-600">info@vidyaclasses.com</p>
-                  <p className="text-gray-600">support@vidyaclasses.com</p>
+                  <p className="text-gray-600">vidyaclassesbgm@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -201,15 +199,17 @@ export default function ContactPage() {
               </div>
               <div>
                 <label className="block text-gray-700 font-semibold mb-2 text-sm">Phone Number *</label>
-                <input
-                  type="tel"
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                  placeholder="Enter your phone number"
-                />
-              </div>
+<input
+  type="tel"
+  required
+  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
+  value={formData.phone}
+  onChange={(e) => {
+    const value = e.target.value.replace(/\D/g, '').slice(0, 10);
+    setFormData({ ...formData, phone: value });
+  }}
+  placeholder="Enter your phone number"
+/>              </div>
               <div>
                 <label className="block text-gray-700 font-semibold mb-2 text-sm">Your Message *</label>
                 <textarea
