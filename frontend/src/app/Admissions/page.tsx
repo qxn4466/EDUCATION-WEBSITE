@@ -120,7 +120,7 @@ export default function AdmissionsPage() {
         
         <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
           {/* Top Right Corner Image */}
-          <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
+          {/* <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
             <div className="relative w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden shadow-xl border-2 border-white/50 hover:scale-110 transition-transform duration-300">
               <Image
                 src="/images/hero/admission-icon.jpg"
@@ -129,7 +129,7 @@ export default function AdmissionsPage() {
                 className="object-cover"
               />
             </div>
-          </div>
+          </div> */}
 
           {/* Image at top center */}
           <div className="flex justify-center mb-4">
@@ -298,7 +298,7 @@ export default function AdmissionsPage() {
           <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-8 text-center">
             <div className="flex items-center justify-center gap-2">
               <FaPhone className="text-blue-600" />
-              <a href="tel:+919876543210" className="text-gray-700 hover:text-blue-600">+91 98765 43210</a>
+              <a href="tel:+9187123 46960" className="text-gray-700 hover:text-blue-600">+91 87123 46960</a>
             </div>
             <div className="flex items-center justify-center gap-2">
               <FaEnvelope className="text-green-600" />
