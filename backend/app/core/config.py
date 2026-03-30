@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     
     # Email - Resend (optional, keep for compatibility)
     RESEND_API_KEY: str = "re_e4ZJUh1K_CP39nuHd4XnTu8b5U7js34w4"
-    ADMIN_EMAIL: str = "avinash.suregaonkar@gmail.com"
+    ADMIN_EMAIL: str = "vidyaclassesbgm@gmail.com"
 
     # App                                                                   
     APP_NAME: str = "Education Website"

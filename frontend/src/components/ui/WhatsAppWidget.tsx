@@ -3,7 +3,7 @@
 import { FaWhatsapp } from 'react-icons/fa';
 
 export default function WhatsAppWidget() {
-  const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '+919876543210';
+  const phoneNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '+918712346960';
   const message = encodeURIComponent("Hello, I'm interested in your courses. Please provide more information.");
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 

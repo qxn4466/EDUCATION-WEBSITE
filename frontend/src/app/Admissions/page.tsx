@@ -97,7 +97,7 @@ export default function AdmissionsPage() {
   ];
 
   const handleBack = () => {
-    window.history.back();
+    router.back();
   };
 
   return (
@@ -119,6 +119,18 @@ export default function AdmissionsPage() {
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
         
         <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
+          {/* Top Right Corner Image */}
+          <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
+            <div className="relative w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden shadow-xl border-2 border-white/50 hover:scale-110 transition-transform duration-300">
+              <Image
+                src="/images/hero/admission-icon.jpg"
+                alt="Admission"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+
           {/* Image at top center */}
           <div className="flex justify-center mb-4">
             <div className="relative w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden shadow-2xl border-4 border-white/30">

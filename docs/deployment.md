@@ -252,7 +252,7 @@ DATABASE_URL=postgresql://postgres:postgres@localhost:5432/education_db
 
 # Email (Resend)
 RESEND_API_KEY=re_xxxxxxx
-ADMIN_EMAIL=avinash.suregaonkar@gmail.com
+ADMIN_EMAIL=vidyaclassesbgm@gmail.com
 
 # App
 APP_NAME=Vidya Classes
@@ -286,7 +286,7 @@ module.exports = nextConfig
 Environment Variables (.env)
 env
 NEXT_PUBLIC_API_URL=https://vidyaclasses.in.net/api/v1
-NEXT_PUBLIC_WHATSAPP_NUMBER=+919876543210
+NEXT_PUBLIC_WHATSAPP_NUMBER=+918712346960
 Building the Frontend
 bash
 cd /home/ubuntu/EDUCATION-WEBSITE/frontend
@@ -539,4 +539,4 @@ BACKEND_CORS_ORIGINS	Allowed origins	["https://vidyaclasses.in.net"]
 Frontend (.env)
 Variable	Description	Example
 NEXT_PUBLIC_API_URL	Backend API URL	https://vidyaclasses.in.net/api/v1
-NEXT_PUBLIC_WHATSAPP_NUMBER	WhatsApp number	+919876543210
+NEXT_PUBLIC_WHATSAPP_NUMBER	WhatsApp number	+918712346960

@@ -4,7 +4,7 @@ import asyncio
 async def test():
     test_data = {
         "name": "Test User",
-        "phone": "9876543210",
+        "phone": "8712346960",
         "class_subject": "Test Class",
         "message": "This is a test email",
         "created_at": "2024-03-26 10:00:00"
