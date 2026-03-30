@@ -252,7 +252,7 @@ DATABASE_URL=postgresql://postgres:postgres@localhost:5432/education_db
 
 # Email (Resend)
 RESEND_API_KEY=re_xxxxxxx
-ADMIN_EMAIL=avinash.suregaonkar@gmail.com
+ADMIN_EMAIL=vidyaclassesbgm@gmail.com
 
 # App
 APP_NAME=Vidya Classes
