@@ -7,7 +7,7 @@ resend.api_key = settings.RESEND_API_KEY
 def send_email(subject: str, html_content: str):
     try:
         params = {
-            "from": "Vidya Classes <onboarding@resend.dev>",
+            "from": "Vidya Classes <noreply@vidyaclasses.in.net>",
             "to": [settings.ADMIN_EMAIL],
             "subject": subject,
             "html": html_content,

@@ -237,27 +237,31 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             {/* <h2 className="text-2xl md:text-3xl font-bold mb-6">We Are Your Teacher</h2> */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition">
-                <FaQuestion className="text-3xl mx-auto mb-2" />
-                <p className="text-sm">If you have questions, we give you answers</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition">
-                <FaLightbulb className="text-3xl mx-auto mb-2" />
-                <p className="text-sm">If you have confusions, we give you clarity</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition">
-                <FaStar className="text-3xl mx-auto mb-2" />
-                <p className="text-sm">If you have dreams, we give you wings</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition">
-                <FaHeart className="text-3xl mx-auto mb-2" />
-                <p className="text-sm">If you feel low, we make you confident</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition">
-                <FaCompass className="text-3xl mx-auto mb-2" />
-                <p className="text-sm">If you are lost, we show you the way</p>
-              </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition group">
+              <FaQuestion className="text-3xl mx-auto mb-2 text-blue-300 group-hover:text-blue-200 transition" />
+              <p className="text-sm text-gray-100">If you have questions, we give you answers</p>
             </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition group">
+              <FaLightbulb className="text-3xl mx-auto mb-2 text-yellow-300 group-hover:text-yellow-200 transition" />
+              <p className="text-sm text-gray-100">If you have confusions, we give you clarity</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition group">
+              <FaStar className="text-3xl mx-auto mb-2 text-orange-300 group-hover:text-orange-200 transition" />
+              <p className="text-sm text-gray-100">If you have dreams, we give you wings</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition group">
+              <FaHeart className="text-3xl mx-auto mb-2 text-pink-300 group-hover:text-pink-200 transition" />
+              <p className="text-sm text-gray-100">If you feel low, we make you confident</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition group">
+              <FaCompass className="text-3xl mx-auto mb-2 text-green-300 group-hover:text-green-200 transition" />
+              <p className="text-sm text-gray-100">If you are lost, we show you the way</p>
+            </div>
+           </div>
             <p className="mt-8 text-lg font-semibold">Vidya Classes Dedicated to Give You the Best Education</p>
           </div>
         </div>
