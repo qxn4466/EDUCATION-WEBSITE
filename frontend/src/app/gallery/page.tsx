@@ -17,12 +17,12 @@ interface GalleryImage {
 
 // Gallery items with both image paths and fallback icons
 const galleryItems: GalleryImage[] = [
-  { id: 1, url: "/images/gallery/image5.jpg", title: "Interactive Classroom Session", category: "Classes", icon: "📚", color: "from-blue-500 to-blue-600" },
+  { id: 1, url: "/images/gallery/image5.jpg", title: "Achievement", category: "Achievements", icon: "📚", color: "from-blue-500 to-blue-600" },
   { id: 2, url: "/images/gallery/image6.jpg", title: "Annual Workshop", category: "Events", icon: "🎯", color: "from-green-500 to-green-600" },
   { id: 3, url: "/images/gallery/image7.jpg", title: "Science Exhibition", category: "Activities", icon: "🔬", color: "from-purple-500 to-purple-600" },
-  { id: 4, url: "/images/gallery/image8.jpg", title: "Sports Day Celebration", category: "Events", icon: "⚽", color: "from-green-500 to-green-600" },
+  { id: 4, url: "/images/gallery/image8.jpg", title: "Coaching environment", category: "Classes", icon: "⚽", color: "from-green-500 to-green-600" },
   { id: 5, url: "/images/gallery/image9.jpg", title: "Award Ceremony", category: "Achievements", icon: "🏆", color: "from-yellow-500 to-orange-500" },
-  { id: 6, url: "/images/gallery/image10.jpg", title: "Library Session", category: "Classes", icon: "📖", color: "from-blue-500 to-blue-600" },
+  { id: 6, url: "/images/gallery/image10.jpg", title: "Interactive classroom Session", category: "Classes", icon: "📖", color: "from-blue-500 to-blue-600" },
   { id: 7, url: "/images/gallery/image11.jpg", title: "Science Lab", category: "Facilities", icon: "🧪", color: "from-pink-500 to-red-500" },
   { id: 8, url: "/images/gallery/image12.jpg", title: "Educational Field Trip", category: "Activities", icon: "🚌", color: "from-purple-500 to-purple-600" },
 ];
@@ -74,8 +74,9 @@ export default function GalleryPage() {
               />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">Our Gallery</h1>
-          <p className="text-lg md:text-xl text-center text-white/90 mb-6">
+
+          <h1 className="text-3xl md:text-3xl lg:text-5xl font-bold text-center mb-4 text-blue-800 drop-shadow-lg">Our Gallery</h1>
+          <p className="text-lg md:text-xl text-center max-w-3xl mx-auto text-blue-800 font-semibold drop-shadow-lg mb-6">  
             Capturing moments of learning, growth, and celebration
           </p>
         </div>

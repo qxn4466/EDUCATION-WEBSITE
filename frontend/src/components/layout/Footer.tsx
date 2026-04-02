@@ -75,7 +75,7 @@ export default function Footer() {
 
               <li className="flex items-start gap-3 text-gray-400 text-sm">
                 <FaMapMarkerAlt className="text-purple-400 mt-1" />
-                <span>No. 2127, Pangul Galli, Shahapur circle,  Belagavi - 590001</span>
+                <span>No. 2127, Shahapur circle,  Belagavi - 590001</span>
               </li>
 
             </ul>
