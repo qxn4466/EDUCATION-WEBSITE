@@ -51,11 +51,11 @@ export default function AboutPage() {
       </div>
 
       {/* Hero Section with Logo/Image */}
-      <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white overflow-hidden pt-12">
+      <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white overflow-visible pt-12">
         <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
         
-        <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
+        <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
           {/* Image at top center */}
           <div className="flex justify-center mb-4">
             <div className="relative w-48 h-48 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl border-4 border-white/30">
@@ -71,7 +71,7 @@ export default function AboutPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6">
             About Vidya Coaching Classes
           </h1>
-          <p className="text-lg md:text-xl text-center max-w-3xl mx-auto text-white/90">
+          <p className="text-lg md:text-xl text-center max-w-3xl mx-auto text-white/90 mb-6">
             Empowering minds, shaping futures through quality education and values
           </p>
         </div>

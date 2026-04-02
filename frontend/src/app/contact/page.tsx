@@ -121,6 +121,7 @@ export default function ContactPage() {
                 <div>
                   <p className="font-semibold text-gray-800">Phone</p>
                   <p className="text-gray-600">+91 87123 46960</p>
+                  <p className="text-gray-600">+91 7997687099</p>                  
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -140,6 +141,10 @@ export default function ContactPage() {
                   <p className="font-semibold text-gray-800">Address</p>
                   <p className="text-gray-600">Edurshetty Arcade, Beside Reliance Smart Market,</p>
                   <p className="text-gray-600">Datta Circle, Anjaneya Nagar, Belagavi</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-800">Another branch</p>
+                  <p className="text-gray-600">No. 2127, Pangul Galli, Shahapur circle,  Belagavi - 590001</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">

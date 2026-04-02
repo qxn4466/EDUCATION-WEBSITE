@@ -302,7 +302,7 @@ export default function AdmissionsPage() {
             </div>
             <div className="flex items-center justify-center gap-2">
               <FaEnvelope className="text-green-600" />
-              <a href="mailto:admissions@vidyaclasses.com" className="text-gray-700 hover:text-blue-600">admissions@vidyaclasses.com</a>
+              <a href="mailto:vidyaclassesbgm@gmail.com" className="text-gray-700 hover:text-blue-600">vidyaclassesbgm@gmail.com</a>
             </div>
             <p className="text-gray-600 text-sm">* For detailed information, please contact our admission office</p>
           </div>
