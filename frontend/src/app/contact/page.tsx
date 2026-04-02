@@ -58,10 +58,8 @@ export default function ContactPage() {
             </div>
           </div>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4">
-            Contact Us
-          </h1>
-          <p className="text-lg md:text-xl text-center max-w-3xl mx-auto text-white/90 mb-6">
+          <h1 className="text-3xl md:text-3xl lg:text-5xl font-bold text-center mb-4 text-blue-800 drop-shadow-lg">Contact Us</h1>
+          <p className="text-lg md:text-xl text-center max-w-3xl mx-auto text-blue-800 font-semibold drop-shadow-lg mb-6"> 
             Get in touch with us for any queries or admissions
           </p>
         </div>
@@ -144,7 +142,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="font-semibold text-gray-800">Another branch</p>
-                  <p className="text-gray-600">No. 2127, Pangul Galli, Shahapur circle,  Belagavi - 590001</p>
+                  <p className="text-gray-600">No. 2127, Shahapur circle,  Belagavi - 590001</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">

@@ -85,7 +85,7 @@ export default function TimingsPage() {
     { time: "7:30 AM - 9:00 AM", class: "Class 8-10", subject: "Science", teacher: "Prof. Mehta", icon: "🔬" },
     { time: "4:00 PM - 5:30 PM", class: "Class 6-7", subject: "All Subjects", teacher: "Ms. Gupta", icon: "📚" },
     { time: "5:30 PM - 7:00 PM", class: "Class 9-12", subject: "Physics & Chemistry", teacher: "Dr. Kumar", icon: "⚛️" },
-    { time: "7:00 PM - 8:30 PM", class: "Competitive Exams", subject: "JEE/NEET", teacher: "Prof. Singh", icon: "🎯" }
+    { time: "7:00 PM - 8:30 PM", class: "Competitive Exams", subject: "JEE/NEET/K-CET", teacher: "Prof. Singh", icon: "🎯" }
   ];
 
   const saturdaySchedule = [
@@ -134,8 +134,8 @@ export default function TimingsPage() {
             </div>
           </div>
           
-          <h1 className="text-3xl md:text-5xl font-bold text-center mb-3">Class Timings</h1>
-          <p className="text-base md:text-xl text-center max-w-3xl mx-auto text-white/90 px-4 mb-6">
+          <h1 className="text-3xl md:text-3xl lg:text-5xl font-bold text-center mb-4 text-blue-800 drop-shadow-lg">Class Timings</h1>
+          <p className="text-lg md:text-xl text-center max-w-3xl mx-auto text-blue-800 font-semibold drop-shadow-lg mb-6">  
             Flexible schedules designed for your convenience
           </p>
         </div>

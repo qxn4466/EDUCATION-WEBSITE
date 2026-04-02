@@ -53,7 +53,6 @@ export default function Home() {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
     }, 4000);
-
     return () => clearInterval(interval);
   }, [images.length]);
 
@@ -75,7 +74,6 @@ export default function Home() {
       <nav className="bg-white shadow-md sticky top-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
-            {/* Logo with Trust, Success, Care - Larger Font */}
             <Link href="/" className="flex flex-col">
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-1">
@@ -108,7 +106,6 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* Desktop Menu with Colored Links */}
             <div className="hidden md:flex space-x-6">
               {navigation.map((item) => (
                 <Link
@@ -122,7 +119,6 @@ export default function Home() {
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               className="md:hidden text-gray-700"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -131,7 +127,6 @@ export default function Home() {
             </button>
           </div>
 
-          {/* Mobile Menu with Colored Links */}
           {mobileMenuOpen && (
             <div className="md:hidden py-4 border-t space-y-2">
               {navigation.map((item) => (
@@ -149,286 +144,269 @@ export default function Home() {
         </div>
       </nav>
 
-{/* HERO SECTION - Title at Top, Left Image Extreme Left, Slider Below */}
-<section className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50">
-  {/* Background decorative elements */}
-  <div className="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-20"></div>
-  <div className="absolute bottom-0 right-0 w-72 h-72 bg-orange-100 rounded-full blur-3xl opacity-20"></div>
+      {/* HERO SECTION */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50">
+        <div className="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-20"></div>
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-orange-100 rounded-full blur-3xl opacity-20"></div>
 
-  <div className="container mx-auto px-4 pt-2 pb-6 md:pt-4 md:pb-10">
-    {/* Desktop Layout */}
-    <div className="hidden lg:block">
-      {/* Top Row: Left Image + Centered Title */}
-      <div className="flex items-center justify-between mb-0">
-        {/* Left Image - Extreme Left */}
-        <div className="flex-shrink-0">
-          <div className="relative w-36 h-36 md:w-42 md:h-42 lg:w-48 lg:h-48 rounded-full overflow-hidden shadow-2xl border-4 border-white/30 bg-gradient-to-r from-blue-600 via-green-600 to-orange-600">
-            <Image
-              src="/images/hero/image0.jpeg"
-              alt="Vidya Classes"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-black/20"></div>
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2 pb-3">
-              <p className="text-white text-center font-semibold text-xs md:text-sm leading-tight">
-                Vara Prasad<br />Reddy
-              </p>
-            </div>
-          </div>        
-        </div>
-
-        { /* Center Title */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
-            Vidya Coaching Classes
-          </h1>
-          { <div className="flex justify-center gap-4 mt-2">
-            <span className="text-blue-600 font-semibold text-sm">TRUST</span>
-            <span className="text-green-600 font-semibold text-sm">SUCCESS</span>
-            <span className="text-orange-600 font-semibold text-sm">CARE</span>
-          </div> } 
-        </div> 
-
-        {/* Right spacer to balance layout */}
-        <div className="w-32 md:w-40 lg:w-48"></div>
-      </div>
-
-{/* Slider Below - Reduced Border */}
-<div className="flex justify-center -mt-20">
-  <div className="w-full max-w-5xl">
-    <div className="relative rounded-lg overflow-hidden shadow-xl bg-gradient-to-r from-blue-600 via-green-600 to-orange-600">
-      <div className="relative w-full" style={{ height: 'clamp(280px, 45vw, 450px)' }}>
-        <div
-          className="flex transition-transform duration-700 ease-in-out h-full"
-          style={{ transform: `translateX(-${index * 100}%)` }}
-        >
-          {images.map((img, i) => (
-            <div key={img} className="min-w-full flex-shrink-0 relative h-full">
-              <Image
-                src={img}
-                alt="Education"
-                fill
-                sizes="(max-width: 768px) 100vw, 1200px"
-                className="object-cover"
-                priority={i === 0}
-                loading={i === 0 ? 'eager' : 'lazy'}
-              />
-              <div className="absolute inset-0 bg-black/10"></div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Slider Dots */}
-      <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-10">
-        {images.map((img, i) => (
-          <button
-            key={img}
-            onClick={() => setIndex(i)}
-            className={`h-1.5 w-1.5 rounded-full transition-all ${
-              i === index ? 'bg-white scale-125 w-4' : 'bg-white/60'
-            }`}
-          />
-        ))}
-      </div>
-    </div>
-  </div>
-</div>
-    </div>
-
-    {/* Mobile Layout - Stacked */}
-    <div className="flex flex-col lg:hidden items-center text-center mb-6">
-      {/* Top Image - Mobile */}
-      <div className="relative w-24 h-24 rounded-full overflow-hidden shadow-xl border-4 border-white/30 bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 mb-3">
-        <Image
-          src="/images/hero/image0.jpeg"
-          alt="Vidya Classes"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-1">
-          <p className="text-white text-center font-semibold text-[10px]">
-            Vara Prasad Reddy
-          </p>
-        </div>
-      </div>
-      
-      {/* Text - Mobile */}
-      <h1 className="text-2xl font-extrabold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
-        Vidya Coaching Classes
-      </h1>
-      <div className="flex justify-center gap-4 mt-2 mb-4">
-        <span className="text-blue-600 font-semibold text-xs">TRUST</span>
-        <span className="text-green-600 font-semibold text-xs">SUCCESS</span>
-        <span className="text-orange-600 font-semibold text-xs">CARE</span>
-      </div>
-      
-      {/* Slider - Mobile */}
-      <div className="w-full">
-        <div className="relative rounded-xl overflow-hidden shadow-xl bg-gradient-to-r from-blue-600 via-green-600 to-orange-600">
-          <div className="relative w-full" style={{ height: '280px' }}>
+        <div className="container mx-auto px-4 py-6 md:py-10">
+          {/* DESKTOP LAYOUT */}
+          <div className="hidden lg:block">
+            <div className="flex flex-col items-center justify-center">
             <div
-              className="flex transition-transform duration-700 ease-in-out h-full"
-              style={{ transform: `translateX(-${index * 100}%)` }}
+              className="flex items-center justify-center gap-8 w-full max-w-6xl mx-auto"
+              style={{ height: 'clamp(300px, 35vw, 380px)' }}
             >
-              {images.map((img, i) => (
-                <div key={img} className="min-w-full flex-shrink-0 relative h-full">
-                  <Image
-                    src={img}
-                    alt="Education"
-                    fill
-                    sizes="100vw"
-                    className="object-contain"
-                    priority={i === 0}
-                    loading={i === 0 ? 'eager' : 'lazy'}
-                  />
-                  <div className="absolute inset-0 bg-black/10"></div>
+                {/* Left Square Image */}
+                <div className="flex-shrink-0 h-full">
+                  <div className="relative h-full aspect-square rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/30">
+                    <Image
+                      src="/images/hero/image0.jpeg"
+                      alt="Vara Prasad Reddy"
+                      fill
+                      className="object-cover object-top"
+                      priority
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2">
+                      <p className="text-white text-center font-semibold text-sm leading-tight">
+                        Vara Prasad<br />Reddy
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              ))}
+
+                {/* Slider */}
+              <div className="flex-1 max-w-2xl h-full">
+                <div className="relative h-full rounded-xl overflow-hidden shadow-xl bg-gradient-to-r from-blue-600 via-green-600 to-orange-600">
+                  
+                  <div className="relative w-full h-full">  {/* ✅ important */}
+                    
+                    <div
+                      className="flex transition-transform duration-700 ease-in-out h-full"
+                      style={{ transform: `translateX(-${index * 100}%)` }}
+                    >
+                      {images.map((img, i) => (
+                        <div key={img} className="min-w-full relative h-full">
+                          <Image
+                            src={img}
+                            alt="Education"
+                            fill
+                            className="object-cover"
+                            priority={i === 0}
+                          />
+                          <div className="absolute inset-0 bg-black/10"></div>
+                        </div>
+                      ))}
+                    </div>
+
+                  </div>
+
+                  <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-10">
+                      {images.map((img, i) => (
+                        <button
+                          key={img}
+                          onClick={() => setIndex(i)}
+                          className={`h-1.5 w-1.5 rounded-full transition-all ${
+                            i === index ? 'bg-white scale-125 w-4' : 'bg-white/60'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Title */}
+              <div className="text-center mt-10">
+                <h1 className="text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
+                  Vidya Coaching Classes
+                </h1>
+                <div className="flex justify-center gap-6 mt-3">
+                  <span className="text-blue-600 font-semibold text-base">TRUST</span>
+                  <span className="text-green-600 font-semibold text-base">SUCCESS</span>
+                  <span className="text-orange-600 font-semibold text-base">CARE</span>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Slider Dots */}
-          <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-10">
-            {images.map((img, i) => (
-              <button
-                key={img}
-                onClick={() => setIndex(i)}
-                className={`h-1.5 w-1.5 rounded-full transition-all ${
-                  i === index ? 'bg-white scale-125 w-4' : 'bg-white/60'
-                }`}
-              />
-            ))}
+          {/* MOBILE LAYOUT */}
+          <div className="lg:hidden">
+            <div className="flex justify-center mb-5">
+              <div className="relative w-32 h-32 rounded-xl overflow-hidden shadow-xl ring-4 ring-white/30">
+                <Image
+                  src="/images/hero/image0.jpeg"
+                  alt="Vara Prasad Reddy"
+                  fill
+                  className="object-cover object-top"
+                  priority
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-1.5">
+                  <p className="text-white text-center font-semibold text-[10px] leading-tight">
+                    Vara Prasad<br />Reddy
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <h1 className="text-2xl font-extrabold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent text-center">
+              Vidya Coaching Classes
+            </h1>
+            <div className="flex justify-center gap-4 mt-2 mb-6">
+              <span className="text-blue-600 font-semibold text-xs">TRUST</span>
+              <span className="text-green-600 font-semibold text-xs">SUCCESS</span>
+              <span className="text-orange-600 font-semibold text-xs">CARE</span>
+            </div>
+
+            <div className="w-full">
+              <div className="relative rounded-xl overflow-hidden shadow-xl bg-gradient-to-r from-blue-600 via-green-600 to-orange-600">
+                <div className="relative w-full" style={{ height: 'clamp(200px, 45vw, 260px)' }}>
+                  <div
+                    className="flex transition-transform duration-700 ease-in-out h-full"
+                    style={{ transform: `translateX(-${index * 100}%)` }}
+                  >
+                    {images.map((img, i) => (
+                      <div key={img} className="min-w-full flex-shrink-0 relative h-full">
+                        <Image
+                          src={img}
+                          alt="Education"
+                          fill
+                          sizes="100vw"
+                          className="object-cover"
+                          priority={i === 0}
+                          loading={i === 0 ? 'eager' : 'lazy'}
+                        />
+                        <div className="absolute inset-0 bg-black/10"></div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-10">
+                  {images.map((img, i) => (
+                    <button
+                      key={img}
+                      onClick={() => setIndex(i)}
+                      className={`h-1.5 w-1.5 rounded-full transition-all ${
+                        i === index ? 'bg-white scale-125 w-4' : 'bg-white/60'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* PROMISES CARDS */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto mt-16 mb-10">
+            <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 text-center">
+              <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white text-xl">❓</span>
+              </div>
+              <p className="text-blue-800 text-base md:text-lg font-semibold">If you have questions,</p>
+              <p className="text-blue-600 text-lg md:text-xl font-bold">we give you answers</p>
+            </div>
+
+            <div className="bg-gradient-to-r from-green-50 to-green-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 text-center">
+              <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white text-xl">💡</span>
+              </div>
+              <p className="text-green-800 text-base md:text-lg font-semibold">If you have confusions,</p>
+              <p className="text-green-600 text-lg md:text-xl font-bold">we give you clarity</p>
+            </div>
+
+            <div className="bg-gradient-to-r from-orange-50 to-orange-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 text-center">
+              <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white text-xl">⭐</span>
+              </div>
+              <p className="text-orange-800 text-base md:text-lg font-semibold">If you have dreams,</p>
+              <p className="text-orange-600 text-lg md:text-xl font-bold">we give you hope</p>
+            </div>
+
+            <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 text-center">
+              <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white text-xl">❤️</span>
+              </div>
+              <p className="text-purple-800 text-base md:text-lg font-semibold">If you feel low,</p>
+              <p className="text-purple-600 text-lg md:text-xl font-bold">we make you confident</p>
+            </div>
+
+            <div className="bg-gradient-to-r from-pink-50 to-pink-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 text-center sm:col-span-2 lg:col-span-1">
+              <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white text-xl">🧭</span>
+              </div>
+              <p className="text-pink-800 text-base md:text-lg font-semibold">If you are lost,</p>
+              <p className="text-pink-600 text-lg md:text-xl font-bold">we show you the path</p>
+            </div>
+          </div>
+
+          {/* ADMISSION CARD */}
+          <div className="max-w-4xl mx-auto bg-gradient-to-r from-blue-50 via-green-50 to-orange-50 rounded-2xl shadow-xl p-8 md:p-10 mb-10 text-center">
+            <p className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent mb-4">
+              Admission Open
+            </p>
+            <p className="text-xl md:text-2xl lg:text-3xl text-gray-800 font-semibold mt-2">
+              Regular/Vacation Batch
+            </p>
+            <p className="text-lg md:text-xl text-gray-700 font-semibold mt-1">
+              6th to 10th Std
+            </p>
+            <p className="text-base md:text-lg text-gray-600 mt-1">
+              STATE/CBSE/ICSE
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-green-600 text-white px-6 md:px-8 py-3 rounded-full font-semibold text-base md:text-lg shadow-md">
+                📞 CALL 87123 46960
+              </div>
+              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-green-600 text-white px-6 md:px-8 py-3 rounded-full font-semibold text-base md:text-lg shadow-md">
+                📞 CALL 7997687099
+              </div>
+            </div>
+          </div>
+
+          {/* CTA BUTTONS */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+            <Link
+              href="/contact"
+              className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold flex items-center justify-center gap-2 hover:scale-105 transition text-base md:text-lg shadow-lg"
+            >
+              Enroll Now <FaArrowRight />
+            </Link>
+            <Link
+              href="/about"
+              className="border-2 border-blue-600 text-blue-600 px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold hover:bg-blue-50 transition text-base md:text-lg"
+            >
+              Learn More
+            </Link>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
 
-{/* Content below hero - Wider and More Spacious */}
-<div className="text-center mt-12 md:mt-16">
-  {/* <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent mb-8">
-    VIDYA CLASSES
-  </h2> */}
-  
-  {/* Promises Cards - Bigger and Wider */}
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto mb-10">
-    <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
-      <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-        <span className="text-white text-xl">❓</span>
-      </div>
-      <p className="text-blue-800 text-base md:text-lg font-semibold">If you have questions,</p>
-      <p className="text-blue-600 text-lg md:text-xl font-bold">we give you answers</p>
-    </div>
-    
-    <div className="bg-gradient-to-r from-green-50 to-green-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
-      <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-        <span className="text-white text-xl">💡</span>
-      </div>
-      <p className="text-green-800 text-base md:text-lg font-semibold">If you have confusions,</p>
-      <p className="text-green-600 text-lg md:text-xl font-bold">we give you clarity</p>
-    </div>
-    
-    <div className="bg-gradient-to-r from-orange-50 to-orange-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
-      <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-        <span className="text-white text-xl">⭐</span>
-      </div>
-      <p className="text-orange-800 text-base md:text-lg font-semibold">If you have dreams,</p>
-      <p className="text-orange-600 text-lg md:text-xl font-bold">we give you hope</p>
-    </div>
-    
-    <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
-      <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-        <span className="text-white text-xl">❤️</span>
-      </div>
-      <p className="text-purple-800 text-base md:text-lg font-semibold">If you feel low,</p>
-      <p className="text-purple-600 text-lg md:text-xl font-bold">we make you confident</p>
-    </div>
-    
-    <div className="bg-gradient-to-r from-pink-50 to-pink-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 sm:col-span-2 lg:col-span-1">
-      <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-        <span className="text-white text-xl">🧭</span>
-      </div>
-      <p className="text-pink-800 text-base md:text-lg font-semibold">If you are lost,</p>
-      <p className="text-pink-600 text-lg md:text-xl font-bold">we show you the path</p>
-    </div>
-  </div>
-
-  {/* Admission Card - Larger */}
-  <div className="max-w-4xl mx-auto bg-gradient-to-r from-blue-50 via-green-50 to-orange-50 rounded-2xl shadow-xl p-8 md:p-10 mb-10">
-    <p className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent mb-4">
-      Admission Open
-    </p>
-    <p className="text-xl md:text-2xl lg:text-3xl text-gray-800 font-semibold mt-2">
-      6th to 10th Std
-    </p>
-    <p className="text-lg md:text-xl text-gray-600 mt-2">
-      STATE/CBSE
-    </p>
-    <div className="mt-8 flex flex-wrap justify-center gap-4">
-      <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-green-600 text-white px-6 md:px-8 py-3 rounded-full font-semibold text-base md:text-lg shadow-md">
-        📞 CALL 87123 46960
-      </div>
-      <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-green-600 text-white px-6 md:px-8 py-3 rounded-full font-semibold text-base md:text-lg shadow-md">
-        📞 CALL 7997687099
-      </div>
-    </div>
-  </div>
-  
-  {/* CTA Buttons - Larger */}
-  <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
-    <Link
-      href="/contact"
-      className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold flex items-center justify-center gap-2 hover:scale-105 transition text-base md:text-lg shadow-lg"
-    >
-      Enroll Now <FaArrowRight />
-    </Link>
-    <Link
-      href="/about"
-      className="border-2 border-blue-600 text-blue-600 px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold hover:bg-blue-50 transition text-base md:text-lg"
-    >
-      Learn More
-    </Link>
-  </div>
-  </div>
-  </div>
-</section>
-
-
-      {/* Mission Statement Banner */}
+      {/* MISSION STATEMENT BANNER */}
       <div className="bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            {/* <h2 className="text-2xl md:text-3xl font-bold mb-6">We Are Your Teacher</h2> */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition group">
-              <FaQuestion className="text-3xl mx-auto mb-2 text-blue-300 group-hover:text-blue-200 transition" />
-              <p className="text-sm text-gray-100">If you have questions, we give you answers</p>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition group">
+                <FaQuestion className="text-3xl mx-auto mb-2 text-blue-300 group-hover:text-blue-200 transition" />
+                <p className="text-sm text-gray-100">If you have questions, we give you answers</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition group">
+                <FaLightbulb className="text-3xl mx-auto mb-2 text-yellow-300 group-hover:text-yellow-200 transition" />
+                <p className="text-sm text-gray-100">If you have confusions, we give you clarity</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition group">
+                <FaStar className="text-3xl mx-auto mb-2 text-orange-300 group-hover:text-orange-200 transition" />
+                <p className="text-sm text-gray-100">If you have dreams, we give you wings</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition group">
+                <FaHeart className="text-3xl mx-auto mb-2 text-pink-300 group-hover:text-pink-200 transition" />
+                <p className="text-sm text-gray-100">If you feel low, we make you confident</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition group">
+                <FaCompass className="text-3xl mx-auto mb-2 text-green-300 group-hover:text-green-200 transition" />
+                <p className="text-sm text-gray-100">If you are lost, we show you the way</p>
+              </div>
             </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition group">
-              <FaLightbulb className="text-3xl mx-auto mb-2 text-yellow-300 group-hover:text-yellow-200 transition" />
-              <p className="text-sm text-gray-100">If you have confusions, we give you clarity</p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition group">
-              <FaStar className="text-3xl mx-auto mb-2 text-orange-300 group-hover:text-orange-200 transition" />
-              <p className="text-sm text-gray-100">If you have dreams, we give you wings</p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition group">
-              <FaHeart className="text-3xl mx-auto mb-2 text-pink-300 group-hover:text-pink-200 transition" />
-              <p className="text-sm text-gray-100">If you feel low, we make you confident</p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition group">
-              <FaCompass className="text-3xl mx-auto mb-2 text-green-300 group-hover:text-green-200 transition" />
-              <p className="text-sm text-gray-100">If you are lost, we show you the way</p>
-            </div>
-           </div>
             <p className="mt-8 text-lg font-semibold">Vidya Classes Dedicated to Give You the Best Education</p>
           </div>
         </div>
@@ -463,23 +441,23 @@ export default function Home() {
         </div>
       </section>
 
-{/* STATS - Updated with correct establishment year */}
-<section className="py-14 bg-white">
-  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto text-center">
-    {[
-      ['Since 2023', 'Years of Excellence'],
-      ['1000+', 'Students'],
-      ['100%', 'Satisfaction'],
-    ].map(([num, label]) => (
-      <div key={label} className="group">
-        <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent group-hover:scale-110 transition">
-          {num}
+      {/* STATS */}
+      <section className="py-14 bg-white">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto text-center">
+          {[
+            ['Since 2023', 'Years of Excellence'],
+            ['1000+', 'Students'],
+            ['100%', 'Satisfaction'],
+          ].map(([num, label]) => (
+            <div key={label} className="group">
+              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent group-hover:scale-110 transition">
+                {num}
+              </div>
+              <div className="text-gray-500 mt-1 text-xs md:text-sm">{label}</div>
+            </div>
+          ))}
         </div>
-        <div className="text-gray-500 mt-1 text-xs md:text-sm">{label}</div>
-      </div>
-    ))}
-  </div>
-</section>
+      </section>
 
       {/* WHY CHOOSE US - 8 Feature Cards */}
       <section className="py-16 bg-gray-50">
@@ -517,7 +495,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quick Enquiry Section */}
+      {/* QUICK ENQUIRY SECTION */}
       <section className="py-16 bg-gray-100">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-6 md:p-8">
@@ -543,23 +521,11 @@ export default function Home() {
 
         <div className="grid md:grid-cols-3 gap-6 px-4 max-w-6xl mx-auto">
           {[
-            {
-              name: 'Ramesh Kumar',
-              text: 'Excellent teaching methods! My son\'s grades improved significantly.',
-            },
-            {
-              name: 'Priya Sharma',
-              text: 'Very supportive teachers! Highly recommended for quality education.',
-            },
-            {
-              name: 'Amit Patel',
-              text: 'Best coaching institute for competitive exams. Great results!',
-            },
+            { name: 'Ramesh Kumar', text: 'Excellent teaching methods! My son\'s grades improved significantly.' },
+            { name: 'Priya Sharma', text: 'Very supportive teachers! Highly recommended for quality education.' },
+            { name: 'Amit Patel', text: 'Best coaching institute for competitive exams. Great results!' },
           ].map((testimonial) => (
-            <div
-              key={testimonial.name}
-              className="bg-white/10 p-6 rounded-xl backdrop-blur hover:bg-white/20 transition"
-            >
+            <div key={testimonial.name} className="bg-white/10 p-6 rounded-xl backdrop-blur hover:bg-white/20 transition">
               <FaStar className="text-yellow-400 mb-3" />
               <p className="mb-3 italic">"{testimonial.text}"</p>
               <p className="font-semibold">{testimonial.name}</p>
@@ -568,26 +534,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* FINAL CTA */}
       <section className="py-16 text-center">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-4">
-            Ready to Start Your Journey?
-          </h2>
+          <h2 className="text-3xl font-bold mb-4">Ready to Start Your Journey?</h2>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Join thousands of successful students who have achieved their
-            academic goals with Vidya Coaching Classes
+            Join thousands of successful students who have achieved their academic goals with Vidya Coaching Classes
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-orange-600 text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition"
-          >
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-orange-600 text-white px-8 py-3 rounded-full font-semibold hover:scale-105 transition">
             Get Started <FaArrowRight />
           </Link>
         </div>
       </section>
 
-      {/* Footer - Reusable component */}
       <Footer />
     </div>
   );

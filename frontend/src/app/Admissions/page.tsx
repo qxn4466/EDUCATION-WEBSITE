@@ -13,7 +13,9 @@ import {
   FaHeart,
   FaShieldAlt,
   FaEnvelope,
-  FaPhone
+  FaPhone,
+  FaUsers,
+  FaComments
 } from 'react-icons/fa';
 import Footer from '@/components/layout/Footer';
 
@@ -25,11 +27,14 @@ export default function AdmissionsPage() {
       className: "Class 1-5",
       duration: "Full Academic Year",
       features: [
-        "All Subjects Covered",
+        "Mathematics",
+        "Science",
+        "English Grammar",
         "Study Material Included",
         "Weekly Tests",
         "Progress Reports",
-        "Activity-Based Learning"
+        "Activity-Based Learning",
+        "Regular PTMs (Parent-Teacher Meetings)"
       ],
       color: "from-blue-500 to-blue-600",
       textColor: "text-blue-600"
@@ -38,12 +43,15 @@ export default function AdmissionsPage() {
       className: "Class 6-8",
       duration: "Full Academic Year",
       features: [
-        "All Subjects",
+        "Mathematics",
+        "Science",
+        "English Grammar",
         "Study Material Included",
         "Weekly Tests",
         "Progress Reports",
         "Doubt Clearing Sessions",
-        "Science Lab Access"
+        "Science Lab Access",
+        "Regular PTMs (Parent-Teacher Meetings)"
       ],
       color: "from-green-500 to-green-600",
       textColor: "text-green-600",
@@ -53,13 +61,16 @@ export default function AdmissionsPage() {
       className: "Class 9-10",
       duration: "Full Academic Year",
       features: [
-        "All Subjects",
+        "Mathematics",
+        "Science",
+        "English Grammar",
         "Study Material Included",
         "Weekly Tests",
         "Progress Reports",
         "Doubt Sessions",
         "Practice Papers",
-        "Board Exam Preparation"
+        "Board Exam Preparation",
+        "Regular PTMs (Parent-Teacher Meetings)"
       ],
       color: "from-purple-500 to-purple-600",
       textColor: "text-purple-600"
@@ -80,7 +91,7 @@ export default function AdmissionsPage() {
       textColor: "text-red-600"
     },
     {
-      className: "JEE/NEET",
+      className: "JEE/NEET/K-CET",
       duration: "Full Academic Year",
       features: [
         "Complete Syllabus Coverage",
@@ -93,6 +104,18 @@ export default function AdmissionsPage() {
       ],
       color: "from-orange-500 to-orange-600",
       textColor: "text-orange-600"
+    },
+    {
+      className: "Expert Faculty",
+      duration: "Competitive Exams",
+      features: [
+        "Expert faculty with years of experience",
+        "Proven track record of success",
+        "Personalized mentoring approach",
+        "Exam-specific strategies and techniques"
+      ],
+      color: "from-pink-500 to-pink-600",
+      textColor: "text-pink-600"
     }
   ];
 
@@ -113,25 +136,12 @@ export default function AdmissionsPage() {
         </button>
       </div>
 
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white overflow-visible">
+      {/* Hero Section - Fixed visibility with blue text */}
+      <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 overflow-visible">
         <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
         
         <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
-          {/* Top Right Corner Image */}
-          {/* <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
-            <div className="relative w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden shadow-xl border-2 border-white/50 hover:scale-110 transition-transform duration-300">
-              <Image
-                src="/images/hero/admission-icon.jpg"
-                alt="Admission"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div> */}
-
-          {/* Image at top center */}
           <div className="flex justify-center mb-4">
             <div className="relative w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden shadow-2xl border-4 border-white/30">
               <Image
@@ -143,10 +153,10 @@ export default function AdmissionsPage() {
             </div>
           </div>
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4">
+          <h1 className="text-3xl md:text-3xl lg:text-5xl font-bold text-center mb-4 text-blue-800 drop-shadow-lg">
             Admissions
           </h1>
-          <p className="text-lg md:text-xl text-center max-w-3xl mx-auto text-white/90 mb-6">
+          <p className="text-lg md:text-xl text-center max-w-3xl mx-auto text-blue-800 font-semibold drop-shadow-lg mb-6">
             Join Vidya Classes for quality education and guaranteed academic success
           </p>
         </div>
@@ -202,7 +212,7 @@ export default function AdmissionsPage() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {programs.map((program, idx) => (
-            <div key={idx} className="relative bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition transform hover:-translate-y-1">
+            <div key={idx} className="relative bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition transform hover:-translate-y-1 flex flex-col h-full">
               {program.popular && (
                 <div className="absolute top-0 right-0 bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-1 rounded-bl-lg text-xs md:text-sm font-semibold z-10">
                   🔥 MOST POPULAR
@@ -212,8 +222,8 @@ export default function AdmissionsPage() {
                 <h3 className="text-xl md:text-2xl font-bold mb-2">{program.className}</h3>
                 <p className="text-sm opacity-90">{program.duration}</p>
               </div>
-              <div className="p-5 md:p-6">
-                <ul className="space-y-2 md:space-y-3 mb-6">
+              <div className="p-5 md:p-6 flex-grow">
+                <ul className="space-y-2 md:space-y-3">
                   {program.features.map((feature, fIdx) => (
                     <li key={fIdx} className="flex items-start gap-2">
                       <FaCheckCircle className={`${program.textColor} mt-1 flex-shrink-0 text-sm md:text-base`} />
@@ -221,9 +231,11 @@ export default function AdmissionsPage() {
                     </li>
                   ))}
                 </ul>
+              </div>
+              <div className="p-5 md:p-6 pt-0 mt-auto">
                 <Link
                   href="/#quick-enquiry"
-                  className="block w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2 md:py-3 rounded-lg font-semibold hover:scale-105 transition text-center"
+                  className="block w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-2.5 md:py-3 rounded-lg font-semibold hover:scale-105 transition text-center text-sm md:text-base"
                 >
                   Apply Now
                 </Link>
