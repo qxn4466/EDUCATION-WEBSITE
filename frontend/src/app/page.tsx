@@ -153,10 +153,13 @@ export default function Home() {
           {/* DESKTOP LAYOUT */}
           <div className="hidden lg:block">
             <div className="flex flex-col items-center justify-center">
-              <div className="flex items-center justify-center gap-8 w-full max-w-6xl mx-auto">
+            <div
+              className="flex items-center justify-center gap-8 w-full max-w-6xl mx-auto"
+              style={{ height: 'clamp(300px, 35vw, 380px)' }}
+            >
                 {/* Left Square Image */}
-                <div className="flex-shrink-0">
-                  <div className="relative w-56 h-56 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/30">
+                <div className="flex-shrink-0 h-full">
+                  <div className="relative h-full aspect-square rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/30">
                     <Image
                       src="/images/hero/image0.jpeg"
                       alt="Vara Prasad Reddy"
@@ -173,30 +176,32 @@ export default function Home() {
                 </div>
 
                 {/* Slider */}
-                <div className="flex-1 max-w-2xl">
-                  <div className="relative rounded-xl overflow-hidden shadow-xl bg-gradient-to-r from-blue-600 via-green-600 to-orange-600">
-                    <div className="relative w-full" style={{ height: 'clamp(300px, 35vw, 380px)' }}>
-                      <div
-                        className="flex transition-transform duration-700 ease-in-out h-full"
-                        style={{ transform: `translateX(-${index * 100}%)` }}
-                      >
-                        {images.map((img, i) => (
-                          <div key={img} className="min-w-full flex-shrink-0 relative h-full">
-                            <Image
-                              src={img}
-                              alt="Education"
-                              fill
-                              sizes="(max-width: 768px) 100vw, 800px"
-                              className="object-cover"
-                              priority={i === 0}
-                              loading={i === 0 ? 'eager' : 'lazy'}
-                            />
-                            <div className="absolute inset-0 bg-black/10"></div>
-                          </div>
-                        ))}
-                      </div>
+              <div className="flex-1 max-w-2xl h-full">
+                <div className="relative h-full rounded-xl overflow-hidden shadow-xl bg-gradient-to-r from-blue-600 via-green-600 to-orange-600">
+                  
+                  <div className="relative w-full h-full">  {/* ✅ important */}
+                    
+                    <div
+                      className="flex transition-transform duration-700 ease-in-out h-full"
+                      style={{ transform: `translateX(-${index * 100}%)` }}
+                    >
+                      {images.map((img, i) => (
+                        <div key={img} className="min-w-full relative h-full">
+                          <Image
+                            src={img}
+                            alt="Education"
+                            fill
+                            className="object-cover"
+                            priority={i === 0}
+                          />
+                          <div className="absolute inset-0 bg-black/10"></div>
+                        </div>
+                      ))}
                     </div>
-                    <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-10">
+
+                  </div>
+
+                  <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-10">
                       {images.map((img, i) => (
                         <button
                           key={img}
