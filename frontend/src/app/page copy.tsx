@@ -149,96 +149,55 @@ export default function Home() {
         </div>
       </nav>
 
-{/* HERO SECTION - Title at Top, Left Image Extreme Left, Slider Below */}
+{/* HERO SECTION - Image on Extreme Left */}
 <section className="relative overflow-hidden bg-gradient-to-br from-white to-gray-50">
   {/* Background decorative elements */}
   <div className="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-20"></div>
   <div className="absolute bottom-0 right-0 w-72 h-72 bg-orange-100 rounded-full blur-3xl opacity-20"></div>
 
-  <div className="container mx-auto px-4 pt-2 pb-6 md:pt-4 md:pb-10">
-    {/* Desktop Layout */}
-    <div className="hidden lg:block">
-      {/* Top Row: Left Image + Centered Title */}
-      <div className="flex items-center justify-between mb-0">
-        {/* Left Image - Extreme Left */}
-        <div className="flex-shrink-0">
-          <div className="relative w-36 h-36 md:w-42 md:h-42 lg:w-48 lg:h-48 rounded-full overflow-hidden shadow-2xl border-4 border-white/30 bg-gradient-to-r from-blue-600 via-green-600 to-orange-600">
-            <Image
-              src="/images/hero/image0.jpeg"
-              alt="Vidya Classes"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-black/20"></div>
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2 pb-3">
-              <p className="text-white text-center font-semibold text-xs md:text-sm leading-tight">
-                Vara Prasad<br />Reddy
-              </p>
-            </div>
-          </div>        
-        </div>
+  <div className="container mx-auto px-4 py-6 md:py-10">
+    {/* Desktop Layout - Image Extreme Left */}
+<div className="hidden lg:flex flex-col items-center mb-8">
+  
+  {/* Top Row: Image + Centered Title */}
+  <div className="w-full flex items-center justify-between">
+    
+    {/* Left Image */}
+    <div className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden shadow-2xl border-4 border-white/30 bg-gradient-to-r from-blue-600 via-green-600 to-orange-600">
+      <Image
+        src="/images/hero/image0.jpeg"
+        alt="Vidya Classes"
+        fill
+        className="object-cover"
+        priority
+      />
+          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+            <p className="text-white text-center font-semibold text-base">
+              Vara Prasad Reddy
+            </p>
+          </div>      
+    </div>
 
-        { /* Center Title */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
-            Vidya Coaching Classes
-          </h1>
-          { <div className="flex justify-center gap-4 mt-2">
-            <span className="text-blue-600 font-semibold text-sm">TRUST</span>
-            <span className="text-green-600 font-semibold text-sm">SUCCESS</span>
-            <span className="text-orange-600 font-semibold text-sm">CARE</span>
-          </div> } 
-        </div> 
+    {/* Center Title */}
+    <div className="flex-1 text-center">
+      <h1 className="text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
+        Vidya Coaching Classes
+      </h1>
 
-        {/* Right spacer to balance layout */}
-        <div className="w-32 md:w-40 lg:w-48"></div>
-      </div>
-
-{/* Slider Below - Reduced Border */}
-<div className="flex justify-center -mt-20">
-  <div className="w-full max-w-5xl">
-    <div className="relative rounded-lg overflow-hidden shadow-xl bg-gradient-to-r from-blue-600 via-green-600 to-orange-600">
-      <div className="relative w-full" style={{ height: 'clamp(280px, 45vw, 450px)' }}>
-        <div
-          className="flex transition-transform duration-700 ease-in-out h-full"
-          style={{ transform: `translateX(-${index * 100}%)` }}
-        >
-          {images.map((img, i) => (
-            <div key={img} className="min-w-full flex-shrink-0 relative h-full">
-              <Image
-                src={img}
-                alt="Education"
-                fill
-                sizes="(max-width: 768px) 100vw, 1200px"
-                className="object-cover"
-                priority={i === 0}
-                loading={i === 0 ? 'eager' : 'lazy'}
-              />
-              <div className="absolute inset-0 bg-black/10"></div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Slider Dots */}
-      <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-10">
-        {images.map((img, i) => (
-          <button
-            key={img}
-            onClick={() => setIndex(i)}
-            className={`h-1.5 w-1.5 rounded-full transition-all ${
-              i === index ? 'bg-white scale-125 w-4' : 'bg-white/60'
-            }`}
-          />
-        ))}
+      <div className="flex justify-center gap-4 mt-2">
+        <span className="text-blue-600 font-semibold text-sm">TRUST</span>
+        <span className="text-green-600 font-semibold text-sm">SUCCESS</span>
+        <span className="text-orange-600 font-semibold text-sm">CARE</span>
       </div>
     </div>
+
+    {/* Right spacer (balances layout) */}
+    <div className="w-32"></div>
   </div>
-</div>
-    </div>
 
-    {/* Mobile Layout - Stacked */}
+</div>
+    {/* Mobile Layout - Image Centered on Top */}
     <div className="flex flex-col lg:hidden items-center text-center mb-6">
       {/* Top Image - Mobile */}
       <div className="relative w-24 h-24 rounded-full overflow-hidden shadow-xl border-4 border-white/30 bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 mb-3">
@@ -249,28 +208,24 @@ export default function Home() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-1">
-          <p className="text-white text-center font-semibold text-[10px]">
-            Vara Prasad Reddy
-          </p>
-        </div>
       </div>
       
       {/* Text - Mobile */}
       <h1 className="text-2xl font-extrabold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
         Vidya Coaching Classes
       </h1>
-      <div className="flex justify-center gap-4 mt-2 mb-4">
+      <div className="flex justify-center gap-4 mt-2">
         <span className="text-blue-600 font-semibold text-xs">TRUST</span>
         <span className="text-green-600 font-semibold text-xs">SUCCESS</span>
         <span className="text-orange-600 font-semibold text-xs">CARE</span>
       </div>
-      
-      {/* Slider - Mobile */}
-      <div className="w-full">
+    </div>
+
+    {/* Centered Slider */}
+    <div className="flex justify-center mt-6 md:mt-8">
+      <div className="w-full max-w-4xl">
         <div className="relative rounded-xl overflow-hidden shadow-xl bg-gradient-to-r from-blue-600 via-green-600 to-orange-600">
-          <div className="relative w-full" style={{ height: '280px' }}>
+          <div className="relative w-full" style={{ height: 'clamp(250px, 45vw, 400px)' }}>
             <div
               className="flex transition-transform duration-700 ease-in-out h-full"
               style={{ transform: `translateX(-${index * 100}%)` }}
@@ -281,8 +236,8 @@ export default function Home() {
                     src={img}
                     alt="Education"
                     fill
-                    sizes="100vw"
-                    className="object-contain"
+                    sizes="(max-width: 768px) 100vw, 1000px"
+                    className="object-cover"
                     priority={i === 0}
                     loading={i === 0 ? 'eager' : 'lazy'}
                   />
@@ -308,95 +263,63 @@ export default function Home() {
       </div>
     </div>
 
-{/* Content below hero - Wider and More Spacious */}
-<div className="text-center mt-12 md:mt-16">
-  {/* <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent mb-8">
-    VIDYA CLASSES
-  </h2> */}
-  
-  {/* Promises Cards - Bigger and Wider */}
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto mb-10">
-    <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
-      <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-        <span className="text-white text-xl">❓</span>
+    {/* Content below hero */}
+    <div className="text-center mt-8 md:mt-12">
+      <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent mb-3">
+        VIDYA CLASSES
+      </h2>
+      
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 max-w-3xl mx-auto mb-6">
+        <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-3 rounded-lg">
+          <p className="text-blue-700 text-sm md:text-base">If you have questions, we give you answers</p>
+        </div>
+        <div className="bg-gradient-to-r from-green-50 to-green-100 p-3 rounded-lg">
+          <p className="text-green-700 text-sm md:text-base">If you have confusions, we give you clarity</p>
+        </div>
+        <div className="bg-gradient-to-r from-orange-50 to-orange-100 p-3 rounded-lg">
+          <p className="text-orange-700 text-sm md:text-base">If you have dreams, we give you hope</p>
+        </div>
+        <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-3 rounded-lg">
+          <p className="text-purple-700 text-sm md:text-base">If you feel low, we make you confident</p>
+        </div>
+        <div className="bg-gradient-to-r from-pink-50 to-pink-100 p-3 rounded-lg sm:col-span-2 lg:col-span-1">
+          <p className="text-pink-700 text-sm md:text-base">If you are lost, we show you the path</p>
+        </div>
       </div>
-      <p className="text-blue-800 text-base md:text-lg font-semibold">If you have questions,</p>
-      <p className="text-blue-600 text-lg md:text-xl font-bold">we give you answers</p>
-    </div>
-    
-    <div className="bg-gradient-to-r from-green-50 to-green-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
-      <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-        <span className="text-white text-xl">💡</span>
-      </div>
-      <p className="text-green-800 text-base md:text-lg font-semibold">If you have confusions,</p>
-      <p className="text-green-600 text-lg md:text-xl font-bold">we give you clarity</p>
-    </div>
-    
-    <div className="bg-gradient-to-r from-orange-50 to-orange-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
-      <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-        <span className="text-white text-xl">⭐</span>
-      </div>
-      <p className="text-orange-800 text-base md:text-lg font-semibold">If you have dreams,</p>
-      <p className="text-orange-600 text-lg md:text-xl font-bold">we give you hope</p>
-    </div>
-    
-    <div className="bg-gradient-to-r from-purple-50 to-purple-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300">
-      <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-        <span className="text-white text-xl">❤️</span>
-      </div>
-      <p className="text-purple-800 text-base md:text-lg font-semibold">If you feel low,</p>
-      <p className="text-purple-600 text-lg md:text-xl font-bold">we make you confident</p>
-    </div>
-    
-    <div className="bg-gradient-to-r from-pink-50 to-pink-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 sm:col-span-2 lg:col-span-1">
-      <div className="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-        <span className="text-white text-xl">🧭</span>
-      </div>
-      <p className="text-pink-800 text-base md:text-lg font-semibold">If you are lost,</p>
-      <p className="text-pink-600 text-lg md:text-xl font-bold">we show you the path</p>
-    </div>
-  </div>
 
-  {/* Admission Card - Larger */}
-  <div className="max-w-4xl mx-auto bg-gradient-to-r from-blue-50 via-green-50 to-orange-50 rounded-2xl shadow-xl p-8 md:p-10 mb-10">
-    <p className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent mb-4">
-      Admission Open
-    </p>
-    <p className="text-xl md:text-2xl lg:text-3xl text-gray-800 font-semibold mt-2">
-      6th to 10th Std
-    </p>
-    <p className="text-lg md:text-xl text-gray-600 mt-2">
-      STATE/CBSE
-    </p>
-    <div className="mt-8 flex flex-wrap justify-center gap-4">
-      <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-green-600 text-white px-6 md:px-8 py-3 rounded-full font-semibold text-base md:text-lg shadow-md">
-        📞 CALL 87123 46960
-      </div>
-      <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-green-600 text-white px-6 md:px-8 py-3 rounded-full font-semibold text-base md:text-lg shadow-md">
-        📞 CALL 7997687099
-      </div>
+<div className="max-w-2xl mx-auto bg-gradient-to-r from-blue-50 via-green-50 to-orange-50 rounded-xl p-5 md:p-6 mb-6">
+  <p className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
+    Admission Open
+  </p>
+  <p className="text-lg md:text-xl text-gray-700 mt-1">
+    <span className="bg-gradient-to-r from-blue-600 to-blue-700 bg-clip-text text-transparent font-semibold">6th to 10th Std</span>
+  </p>
+  <p className="text-base md:text-lg mt-1">
+    <span className="bg-gradient-to-r from-green-600 to-orange-600 bg-clip-text text-transparent font-semibold">STATE/CBSE</span>
+  </p>
+  <div className="mt-4">
+    <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-green-600 text-white px-5 md:px-6 py-2 rounded-full font-semibold text-sm md:text-base cursor-default">
+      📞 CALL 87123 46960
     </div>
   </div>
-  
-  {/* CTA Buttons - Larger */}
-  <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
-    <Link
-      href="/contact"
-      className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold flex items-center justify-center gap-2 hover:scale-105 transition text-base md:text-lg shadow-lg"
-    >
-      Enroll Now <FaArrowRight />
-    </Link>
-    <Link
-      href="/about"
-      className="border-2 border-blue-600 text-blue-600 px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold hover:bg-blue-50 transition text-base md:text-lg"
-    >
-      Learn More
-    </Link>
-  </div>
-  </div>
+</div>
+      <div className="flex flex-col sm:flex-row gap-3 justify-center">
+        <Link
+          href="/contact"
+          className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 md:px-8 py-2.5 rounded-full font-semibold flex items-center justify-center gap-2 hover:scale-105 transition text-sm md:text-base"
+        >
+          Enroll Now <FaArrowRight />
+        </Link>
+        <Link
+          href="/about"
+          className="border-2 border-blue-600 text-blue-600 px-6 md:px-8 py-2.5 rounded-full font-semibold hover:bg-blue-50 transition text-sm md:text-base"
+        >
+          Learn More
+        </Link>
+      </div>
+    </div>
   </div>
 </section>
-
 
       {/* Mission Statement Banner */}
       <div className="bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white py-12 md:py-16">

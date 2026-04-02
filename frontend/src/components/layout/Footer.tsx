@@ -42,16 +42,15 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link href="/about" className="text-gray-400 hover:text-blue-400 transition text-sm">About Us</Link></li>
-              <li><Link href="/subjects" className="text-gray-400 hover:text-green-400 transition text-sm">Subjects</Link></li>
-              <li><Link href="/timings" className="text-gray-400 hover:text-purple-400 transition text-sm">Class Timings</Link></li>
-              <li><Link href="/fees" className="text-gray-400 hover:text-orange-400 transition text-sm">Admission Details</Link></li>
-              <li><Link href="/gallery" className="text-gray-400 hover:text-pink-400 transition text-sm">Gallery</Link></li>
-              <li><Link href="/blog" className="text-gray-400 hover:text-indigo-400 transition text-sm">Blog</Link></li>
-              <li><Link href="/contact" className="text-gray-400 hover:text-teal-400 transition text-sm">Contact</Link></li>
+              <li><Link href="/about" prefetch={false} className="text-gray-400 hover:text-blue-400 transition text-sm">About Us</Link></li>
+              <li><Link href="/subjects" prefetch={false} className="text-gray-400 hover:text-green-400 transition text-sm">Subjects</Link></li>
+              <li><Link href="/timings" prefetch={false} className="text-gray-400 hover:text-purple-400 transition text-sm">Class Timings</Link></li>
+              <li><Link href="/fees" prefetch={false} className="text-gray-400 hover:text-orange-400 transition text-sm">Admission Details</Link></li>
+              <li><Link href="/gallery" prefetch={false} className="text-gray-400 hover:text-pink-400 transition text-sm">Gallery</Link></li>
+              <li><Link href="/blog" prefetch={false} className="text-gray-400 hover:text-indigo-400 transition text-sm">Blog</Link></li>
+              <li><Link href="/contact" prefetch={false} className="text-gray-400 hover:text-teal-400 transition text-sm">Contact</Link></li>
             </ul>
           </div>
-
           {/* Contact Info */}
           <div>
             <h3 className="text-xl font-bold mb-4">Contact Info</h3>
@@ -61,6 +60,11 @@ export default function Footer() {
                 <span>+91 87123 46960</span>
               </li>
               <li className="flex items-center gap-3 text-gray-400 text-sm">
+                <FaPhone className="text-blue-400" />
+                <span>+91 7997687099</span>
+              </li>
+             
+              <li className="flex items-center gap-3 text-gray-400 text-sm">
                 <FaEnvelope className="text-orange-400" />
                 <span>vidyaclassesbgm@gmail.com</span>
               </li>
@@ -68,6 +72,12 @@ export default function Footer() {
                 <FaMapMarkerAlt className="text-purple-400 mt-1" />
                 <span>Edurshetty Arcade, Beside Reliance Smart Market, Datta Circle, Anjaneya Nagar, Belagavi</span>
               </li>
+
+              <li className="flex items-start gap-3 text-gray-400 text-sm">
+                <FaMapMarkerAlt className="text-purple-400 mt-1" />
+                <span>No. 2127, Pangul Galli, Shahapur circle,  Belagavi - 590001</span>
+              </li>
+
             </ul>
           </div>
 

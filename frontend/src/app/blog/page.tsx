@@ -133,8 +133,8 @@ export default function BlogPage() {
       </div>
 
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white overflow-hidden">
-        <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
+      <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white overflow-visible">
+        <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
           <div className="flex justify-center mb-4">
             <div className="relative w-48 h-48 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl border-4 border-white/30">
               <Image
@@ -146,7 +146,7 @@ export default function BlogPage() {
             </div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">Blog & Updates</h1>
-          <p className="text-lg md:text-xl text-center text-white/90">
+          <p className="text-lg md:text-xl text-center text-white/90 mb-6">
             Expert insights, study tips, and educational resources
           </p>
         </div>

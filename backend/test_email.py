@@ -1,18 +1,29 @@
-from app.services.email import send_enquiry_email
-import asyncio
+import sys
+sys.path.insert(0, '/home/ubuntu/EDUCATION-WEBSITE/backend')
 
-async def test():
-    test_data = {
-        "name": "Test User",
-        "phone": "8712346960",
-        "class_subject": "Test Class",
-        "message": "This is a test email",
-        "created_at": "2024-03-26 10:00:00"
-    }
-    result = await send_enquiry_email(test_data)
+from app.services.email_service import send_email
+from app.core.config import settings
+
+async def test_email():
+    print(f"Current ADMIN_EMAIL: {settings.ADMIN_EMAIL}")
+    print(f"RESEND_API_KEY exists: {bool(settings.RESEND_API_KEY)}")
+    
+    test_html = """
+    <h2>Test Email</h2>
+    <p>This is a test email from Vidya Classes</p>
+    <p>If you received this, email is working correctly!</p>
+    """
+    
+    result = send_email(
+        subject="Test Email - Vidya Classes",
+        html_content=test_html
+    )
+    
     if result:
         print("✅ Email sent successfully!")
     else:
-        print("❌ Email failed. Check your API key.")
+        print("❌ Email failed to send")
 
-asyncio.run(test())
+if __name__ == "__main__":
+    import asyncio
+    asyncio.run(test_email())

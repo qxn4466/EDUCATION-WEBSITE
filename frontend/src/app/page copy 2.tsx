@@ -180,15 +180,15 @@ export default function Home() {
         </div>
 
         { /* Center Title */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
+        <div className="flex-1 text-center">
+          <h1 className="text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
             Vidya Coaching Classes
           </h1>
-          { <div className="flex justify-center gap-4 mt-2">
+          {/* { <div className="flex justify-center gap-4 mt-2">
             <span className="text-blue-600 font-semibold text-sm">TRUST</span>
             <span className="text-green-600 font-semibold text-sm">SUCCESS</span>
             <span className="text-orange-600 font-semibold text-sm">CARE</span>
-          </div> } 
+          </div> } */}
         </div> 
 
         {/* Right spacer to balance layout */}
@@ -282,7 +282,7 @@ export default function Home() {
                     alt="Education"
                     fill
                     sizes="100vw"
-                    className="object-contain"
+                    className="object-cover"
                     priority={i === 0}
                     loading={i === 0 ? 'eager' : 'lazy'}
                   />

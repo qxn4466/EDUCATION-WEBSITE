@@ -41,11 +41,11 @@ export default function ContactPage() {
       </div>
 
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white overflow-hidden">
+      <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white overflow-visible">
         <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
         
-        <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
+        <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
           {/* Image at top center */}
           <div className="flex justify-center mb-4">
             <div className="relative w-48 h-48 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl border-4 border-white/30">
@@ -61,7 +61,7 @@ export default function ContactPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4">
             Contact Us
           </h1>
-          <p className="text-lg md:text-xl text-center max-w-3xl mx-auto text-white/90">
+          <p className="text-lg md:text-xl text-center max-w-3xl mx-auto text-white/90 mb-6">
             Get in touch with us for any queries or admissions
           </p>
         </div>
@@ -121,6 +121,7 @@ export default function ContactPage() {
                 <div>
                   <p className="font-semibold text-gray-800">Phone</p>
                   <p className="text-gray-600">+91 87123 46960</p>
+                  <p className="text-gray-600">+91 7997687099</p>                  
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -140,6 +141,10 @@ export default function ContactPage() {
                   <p className="font-semibold text-gray-800">Address</p>
                   <p className="text-gray-600">Edurshetty Arcade, Beside Reliance Smart Market,</p>
                   <p className="text-gray-600">Datta Circle, Anjaneya Nagar, Belagavi</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-800">Another branch</p>
+                  <p className="text-gray-600">No. 2127, Pangul Galli, Shahapur circle,  Belagavi - 590001</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">

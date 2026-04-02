@@ -61,7 +61,7 @@ export default function GalleryPage() {
       </div>
 
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white overflow-hidden">
+      <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white overflow-visible">
         <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
           {/* Image at top center */}
           <div className="flex justify-center mb-4">
@@ -75,7 +75,7 @@ export default function GalleryPage() {
             </div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">Our Gallery</h1>
-          <p className="text-lg md:text-xl text-center text-white/90">
+          <p className="text-lg md:text-xl text-center text-white/90 mb-6">
             Capturing moments of learning, growth, and celebration
           </p>
         </div>

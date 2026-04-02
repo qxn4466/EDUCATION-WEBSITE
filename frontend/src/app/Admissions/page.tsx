@@ -114,11 +114,11 @@ export default function AdmissionsPage() {
       </div>
 
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white overflow-hidden">
+      <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white overflow-visible">
         <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
         
-        <div className="container mx-auto px-4 py-8 md:py-12 relative z-10">
+        <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
           {/* Top Right Corner Image */}
           {/* <div className="absolute top-4 right-4 md:top-8 md:right-8 z-20">
             <div className="relative w-16 h-16 md:w-24 md:h-24 rounded-full overflow-hidden shadow-xl border-2 border-white/50 hover:scale-110 transition-transform duration-300">
@@ -146,7 +146,7 @@ export default function AdmissionsPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4">
             Admissions
           </h1>
-          <p className="text-lg md:text-xl text-center max-w-3xl mx-auto text-white/90">
+          <p className="text-lg md:text-xl text-center max-w-3xl mx-auto text-white/90 mb-6">
             Join Vidya Classes for quality education and guaranteed academic success
           </p>
         </div>
@@ -302,7 +302,7 @@ export default function AdmissionsPage() {
             </div>
             <div className="flex items-center justify-center gap-2">
               <FaEnvelope className="text-green-600" />
-              <a href="mailto:admissions@vidyaclasses.com" className="text-gray-700 hover:text-blue-600">admissions@vidyaclasses.com</a>
+              <a href="mailto:vidyaclassesbgm@gmail.com" className="text-gray-700 hover:text-blue-600">vidyaclassesbgm@gmail.com</a>
             </div>
             <p className="text-gray-600 text-sm">* For detailed information, please contact our admission office</p>
           </div>
