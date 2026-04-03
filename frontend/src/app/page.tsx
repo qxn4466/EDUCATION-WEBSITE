@@ -64,8 +64,8 @@ export default function Home() {
     { icon: FaUsers, title: "Small batches", description: "Limited students per batch for personalized attention", color: "from-orange-500 to-orange-600", textColor: "text-orange-600" },
     { icon: FaRupeeSign, title: "Affordable fee", description: "Quality education at reasonable prices", color: "from-red-500 to-red-600", textColor: "text-red-600" },
     { icon: FaStar, title: "Highly recommended by parents", description: "Trusted by hundreds of satisfied parents", color: "from-yellow-500 to-yellow-600", textColor: "text-yellow-600" },
-    { icon: FaUserCheck, title: "Individual attention", description: "One-on-one focus on every student", color: "from-pink-500 to-pink-600", textColor: "text-pink-600" },
-    { icon: FaSchool, title: "Teaching based on syllabus for student schools", description: "Curriculum aligned with school requirements", color: "from-indigo-500 to-indigo-600", textColor: "text-indigo-600" },
+    { icon: FaUserCheck, title: "Individual attention", description: "One-to-one focus on every student", color: "from-pink-500 to-pink-600", textColor: "text-pink-600" },
+    { icon: FaSchool, title: "Teaching based on Syllabus & Competitive Exam Preparation", description: "Curriculum aligned with school requirements", color: "from-indigo-500 to-indigo-600", textColor: "text-indigo-600" },
   ];
 
   return (
@@ -337,7 +337,14 @@ export default function Home() {
               <p className="text-pink-800 text-base md:text-lg font-semibold">If you are lost,</p>
               <p className="text-pink-600 text-lg md:text-xl font-bold">we show you the path</p>
             </div>
-          </div>
+            <div className="bg-gradient-to-r from-teal-50 to-cyan-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 text-center sm:col-span-2 lg:col-span-1">
+              <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white text-xl">🤝</span>
+              </div>
+              <p className="text-teal-800 text-base md:text-lg font-semibold">If you are alone,</p>
+              <p className="text-teal-600 text-lg md:text-xl font-bold">we are with you</p>
+            </div>    
+            </div>
 
           {/* ADMISSION CARD */}
           <div className="max-w-4xl mx-auto bg-gradient-to-r from-blue-50 via-green-50 to-orange-50 rounded-2xl shadow-xl p-8 md:p-10 mb-10 text-center">
@@ -405,6 +412,10 @@ export default function Home() {
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition group">
                 <FaCompass className="text-3xl mx-auto mb-2 text-green-300 group-hover:text-green-200 transition" />
                 <p className="text-sm text-gray-100">If you are lost, we show you the way</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition group">
+                <FaCompass className="text-3xl mx-auto mb-2 text-green-300 group-hover:text-green-200 transition" />
+                <p className="text-sm text-gray-100">If you are alone, we are with you</p>
               </div>
             </div>
             <p className="mt-8 text-lg font-semibold">Vidya Classes Dedicated to Give You the Best Education</p>
@@ -475,11 +486,11 @@ export default function Home() {
             {features.map((feature, idx) => {
               const Icon = feature.icon;
               return (
-                <div
-                  key={idx}
-                  className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 text-center group hover:-translate-y-1"
-                >
-                  <div
+              <div
+                key={idx}
+                className={`bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 text-center group hover:-translate-y-1`}
+              >
+              <div
                     className={`bg-gradient-to-r ${feature.color} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition`}
                   >
                     <Icon size={28} className="text-white" />
