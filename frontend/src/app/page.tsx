@@ -169,7 +169,7 @@ export default function Home() {
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2">
                       <p className="text-white text-center font-semibold text-sm leading-tight">
-                        Vara Prasad<br />Reddy
+                        Vara Prasad Reddy
                       </p>
                     </div>
                   </div>
@@ -179,24 +179,23 @@ export default function Home() {
               <div className="flex-1 max-w-2xl h-full">
                 <div className="relative h-full rounded-xl overflow-hidden shadow-xl bg-gradient-to-r from-blue-600 via-green-600 to-orange-600">
                   
-                  <div className="relative w-full h-full">  {/* ✅ important */}
+                  <div className="relative w-full h-full overflow-hidden">  {/* ✅ important */}
                     
                     <div
-                      className="flex transition-transform duration-700 ease-in-out h-full"
+                      className="flex w-full h-full transition-transform duration-700 ease-in-out"
                       style={{ transform: `translateX(-${index * 100}%)` }}
                     >
-                      {images.map((img, i) => (
-                        <div key={img} className="min-w-full relative h-full">
-                          <Image
-                            src={img}
-                            alt="Education"
-                            fill
-                            className="object-cover"
-                            priority={i === 0}
-                          />
-                          <div className="absolute inset-0 bg-black/10"></div>
-                        </div>
-                      ))}
+                    {images.map((img, i) => (
+                      <div key={img} className="basis-full flex-shrink-0 relative h-full px-[2px]">
+                        <Image
+                          src={img}
+                          alt="Education"
+                          fill
+                          className="object-contain"
+                          priority={i === 0}
+                        />
+                      </div>
+                    ))}                    
                     </div>
 
                   </div>
@@ -272,7 +271,7 @@ export default function Home() {
                           alt="Education"
                           fill
                           sizes="100vw"
-                          className="object-cover"
+                          className="object-contain w-full h-full"
                           priority={i === 0}
                           loading={i === 0 ? 'eager' : 'lazy'}
                         />
