@@ -195,7 +195,7 @@ export default function Home() {
                           priority={i === 0}
                         />
                       </div>
-                    ))}                    
+                    ))}
                     </div>
 
                   </div>
@@ -220,7 +220,12 @@ export default function Home() {
                 <h1 className="text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
                   Vidya Coaching Classes
                 </h1>
-                <div className="flex justify-center gap-6 mt-3">
+                  <p className="text-center text-gray-700 mt-4 max-w-2xl mx-auto">
+                    Vidya Coaching Classes is one of the best tuition classes providing quality education
+                    for students from 6th to 10th standard. Our coaching classes focus on strong fundamentals,
+                    experienced teachers, and personalized attention to help students achieve academic success.
+                  </p>                
+                  <div className="flex justify-center gap-6 mt-3">
                   <span className="text-blue-600 font-semibold text-base">TRUST</span>
                   <span className="text-green-600 font-semibold text-base">SUCCESS</span>
                   <span className="text-orange-600 font-semibold text-base">CARE</span>
@@ -348,7 +353,7 @@ export default function Home() {
           {/* ADMISSION CARD */}
           <div className="max-w-4xl mx-auto bg-gradient-to-r from-blue-50 via-green-50 to-orange-50 rounded-2xl shadow-xl p-8 md:p-10 mb-10 text-center">
             <p className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent mb-4">
-              Admission Open
+              Admission Open – Vidya Coaching Classes
             </p>
             <p className="text-xl md:text-2xl lg:text-3xl text-gray-800 font-semibold mt-2">
               Regular/Vacation Batch
@@ -474,7 +479,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
-              Why Choose Us?
+              Why Choose Vidya Coaching Classes?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               What makes Vidya Coaching Classes the right choice for your child's education
@@ -547,7 +552,7 @@ export default function Home() {
       {/* FINAL CTA */}
       <section className="py-16 text-center">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Your Journey?</h2>
+          <h2 className="text-3xl font-bold mb-4">Join Vidya Coaching Classes Today</h2>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
             Join thousands of successful students who have achieved their academic goals with Vidya Coaching Classes
           </p>
@@ -556,7 +561,10 @@ export default function Home() {
           </Link>
         </div>
       </section>
-
+      <p className="text-gray-600 max-w-2xl mx-auto text-center mt-4">
+        Vidya Coaching Classes provides the best coaching classes for school students,
+        helping them excel in exams with structured learning and regular tests.
+      </p>
       <Footer />
     </div>
   );

@@ -5,8 +5,8 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Vidya Coaching Classes - Quality Education',
-  description: 'Providing quality education with trust, success, and care. Expert teachers, comprehensive curriculum, and flexible timings.',
+  title: 'Vidya Coaching Classes | Best Tuition & Coaching Classes',
+  description: 'Vidya Coaching Classes offers quality education with experienced teachers, weekly tests, and personalized attention.',
 };
 
 export default function RootLayout({
