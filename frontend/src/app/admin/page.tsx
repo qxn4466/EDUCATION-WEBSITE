@@ -3,12 +3,13 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { FaArrowLeft, FaLock, FaShieldAlt, FaStar, FaHeart } from 'react-icons/fa';
+import { FaArrowLeft, FaLock, FaShieldAlt, FaStar, FaHeart, FaEye, FaEyeSlash } from 'react-icons/fa';
 import Footer from '@/components/layout/Footer';
 
 export default function AdminLoginPage() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
   const handleBack = () => {
@@ -55,12 +56,12 @@ export default function AdminLoginPage() {
             </div>
           </div>
 
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 text-gray-600 drop-shadow-lg px-2">
-                Admin Portal
-            </h1>
-            <p className="text-base md:text-xl text-center max-w-3xl mx-auto text-gray-600 drop-shadow-md px-4">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 text-gray-600 drop-shadow-lg px-2">
+            Admin Portal
+          </h1>
+          <p className="text-base md:text-xl text-center max-w-3xl mx-auto text-gray-600 drop-shadow-md px-4">
             Secure access for review management
-            </p>
+          </p>
         </div>
         
         <div className="absolute bottom-0 left-0 w-full">
@@ -102,14 +103,23 @@ export default function AdminLoginPage() {
               <p className="text-gray-500 mt-2 text-sm">Enter password to manage reviews</p>
             </div>
             
-            <input
-              type="password"
-              placeholder="Enter admin password"
-              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition mb-4"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && handleLogin()}
-            />
+            <div className="relative mb-4">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Enter admin password"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition pr-12"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleLogin()}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-blue-600 transition"
+              >
+                {showPassword ? <FaEyeSlash size={18} /> : <FaEye size={18} />}
+              </button>
+            </div>
             
             <button
               onClick={handleLogin}
@@ -126,7 +136,8 @@ export default function AdminLoginPage() {
           </div>
         </div>
       </div>
-          <Footer />
+      
+      <Footer />
     </div>
   );
 }
