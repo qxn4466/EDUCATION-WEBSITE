@@ -232,7 +232,7 @@ export default function AboutPage() {
       {/* Why Choose Us - Optimized with useMemo */}
       <div className="container mx-auto px-4 py-16">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
-          Why Choose Us?
+          Why Choose Vidya Coaching Classes?
         </h2>
         <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
           What makes Vidya Coaching Classes the right choice for your child's education

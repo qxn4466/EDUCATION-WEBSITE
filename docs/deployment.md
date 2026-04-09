@@ -540,3 +540,29 @@ Frontend (.env)
 Variable	Description	Example
 NEXT_PUBLIC_API_URL	Backend API URL	https://vidyaclasses.in.net/api/v1
 NEXT_PUBLIC_WHATSAPP_NUMBER	WhatsApp number	+918712346960
+
+===============================
+access oracle server:
+ssh -i ~/avinash/EDUCATION-WEBSITE/ssh-key/ssh-key-2026-03-26.key ubuntu@152.67.4.81
+
+sudo -u postgres psql -d education_db
+
+access services:
+sudo systemctl restart education-backend
+sudo systemctl restart education-frontend.service
+
+npm run build
+
+
+not reflecing issue in the frontend changes:
+npm run build 2>&1 | tail -50
+sudo systemctl reload nginx
+sudo systemctl restart nginx
+
+cd /home/ubuntu/EDUCATION-WEBSITE/frontend
+sudo rm -rf out/
+npm run build
+sudo chown -R www-data:www-data out/
+sudo systemctl reload nginx
+
+===============================

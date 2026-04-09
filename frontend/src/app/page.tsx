@@ -45,6 +45,7 @@ export default function Home() {
     { name: 'Admissions', href: '/Admissions', color: 'text-red-600', hoverColor: 'hover:text-red-700', bgColor: 'bg-red-600' },
     { name: 'Gallery', href: '/gallery', color: 'text-pink-600', hoverColor: 'hover:text-pink-700', bgColor: 'bg-pink-600' },
     { name: 'Blog', href: '/blog', color: 'text-indigo-600', hoverColor: 'hover:text-indigo-700', bgColor: 'bg-indigo-600' },
+    { name: 'Reviews', href: '/reviews', color: 'text-yellow-600', hoverColor: 'hover:text-yellow-700', bgColor: 'bg-yellow-600' },    
     { name: 'Contact', href: '/contact', color: 'text-teal-600', hoverColor: 'hover:text-teal-700', bgColor: 'bg-teal-600' },
   ];
 
@@ -64,8 +65,8 @@ export default function Home() {
     { icon: FaUsers, title: "Small batches", description: "Limited students per batch for personalized attention", color: "from-orange-500 to-orange-600", textColor: "text-orange-600" },
     { icon: FaRupeeSign, title: "Affordable fee", description: "Quality education at reasonable prices", color: "from-red-500 to-red-600", textColor: "text-red-600" },
     { icon: FaStar, title: "Highly recommended by parents", description: "Trusted by hundreds of satisfied parents", color: "from-yellow-500 to-yellow-600", textColor: "text-yellow-600" },
-    { icon: FaUserCheck, title: "Individual attention", description: "One-on-one focus on every student", color: "from-pink-500 to-pink-600", textColor: "text-pink-600" },
-    { icon: FaSchool, title: "Teaching based on syllabus for student schools", description: "Curriculum aligned with school requirements", color: "from-indigo-500 to-indigo-600", textColor: "text-indigo-600" },
+    { icon: FaUserCheck, title: "Individual attention", description: "One-to-one focus on every student", color: "from-pink-500 to-pink-600", textColor: "text-pink-600" },
+    { icon: FaSchool, title: "Teaching based on Syllabus & Competitive Exam Preparation", description: "Curriculum aligned with school requirements", color: "from-indigo-500 to-indigo-600", textColor: "text-indigo-600" },
   ];
 
   return (
@@ -169,7 +170,7 @@ export default function Home() {
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-2">
                       <p className="text-white text-center font-semibold text-sm leading-tight">
-                        Vara Prasad<br />Reddy
+                        Vara Prasad Reddy
                       </p>
                     </div>
                   </div>
@@ -179,24 +180,23 @@ export default function Home() {
               <div className="flex-1 max-w-2xl h-full">
                 <div className="relative h-full rounded-xl overflow-hidden shadow-xl bg-gradient-to-r from-blue-600 via-green-600 to-orange-600">
                   
-                  <div className="relative w-full h-full">  {/* ✅ important */}
+                  <div className="relative w-full h-full overflow-hidden">  {/* ✅ important */}
                     
                     <div
-                      className="flex transition-transform duration-700 ease-in-out h-full"
+                      className="flex w-full h-full transition-transform duration-700 ease-in-out"
                       style={{ transform: `translateX(-${index * 100}%)` }}
                     >
-                      {images.map((img, i) => (
-                        <div key={img} className="min-w-full relative h-full">
-                          <Image
-                            src={img}
-                            alt="Education"
-                            fill
-                            className="object-cover"
-                            priority={i === 0}
-                          />
-                          <div className="absolute inset-0 bg-black/10"></div>
-                        </div>
-                      ))}
+                    {images.map((img, i) => (
+                      <div key={img} className="basis-full flex-shrink-0 relative h-full px-[2px]">
+                        <Image
+                          src={img}
+                          alt="Education"
+                          fill
+                          className="object-contain"
+                          priority={i === 0}
+                        />
+                      </div>
+                    ))}
                     </div>
 
                   </div>
@@ -218,10 +218,16 @@ export default function Home() {
 
               {/* Title */}
               <div className="text-center mt-10">
-                <h1 className="text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
-                  Vidya Coaching Classes
+                <h1 className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-600 via-green-400 to-orange-400 bg-clip-text text-transparent">
+                  Best Coaching Classes in Anjaneya Nagar, Belagavi and Shahapur circle, Belagavi for 6th to 10th (State, CBSE & ICSE)
                 </h1>
-                <div className="flex justify-center gap-6 mt-3">
+                  <p className="text-center text-gray-700 mt-4 max-w-2xl mx-auto">
+                     Vidya Coaching Classes is one of the best tuition centers in Anjaneya Nagar, Belagavi, and  Shahapur circle, Belagavi 
+                     offering high-quality coaching for students from 6th to 10th standard. We provide specialized training for State, CBSE, 
+                     and ICSE syllabus with a focus on strong fundamentals, exam preparation, and personalized attention.
+                     Our experienced teachers ensure every student achieves academic success with confidence.
+                  </p>                
+                  <div className="flex justify-center gap-6 mt-3">
                   <span className="text-blue-600 font-semibold text-base">TRUST</span>
                   <span className="text-green-600 font-semibold text-base">SUCCESS</span>
                   <span className="text-orange-600 font-semibold text-base">CARE</span>
@@ -272,7 +278,7 @@ export default function Home() {
                           alt="Education"
                           fill
                           sizes="100vw"
-                          className="object-cover"
+                          className="object-contain w-full h-full"
                           priority={i === 0}
                           loading={i === 0 ? 'eager' : 'lazy'}
                         />
@@ -337,12 +343,19 @@ export default function Home() {
               <p className="text-pink-800 text-base md:text-lg font-semibold">If you are lost,</p>
               <p className="text-pink-600 text-lg md:text-xl font-bold">we show you the path</p>
             </div>
-          </div>
+            <div className="bg-gradient-to-r from-teal-50 to-cyan-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 text-center sm:col-span-2 lg:col-span-1">
+              <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-white text-xl">🤝</span>
+              </div>
+              <p className="text-teal-800 text-base md:text-lg font-semibold">If you are alone,</p>
+              <p className="text-teal-600 text-lg md:text-xl font-bold">we are with you</p>
+            </div>    
+            </div>
 
           {/* ADMISSION CARD */}
           <div className="max-w-4xl mx-auto bg-gradient-to-r from-blue-50 via-green-50 to-orange-50 rounded-2xl shadow-xl p-8 md:p-10 mb-10 text-center">
             <p className="text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent mb-4">
-              Admission Open
+              Admission Open – Vidya Coaching Classes
             </p>
             <p className="text-xl md:text-2xl lg:text-3xl text-gray-800 font-semibold mt-2">
               Regular/Vacation Batch
@@ -406,6 +419,10 @@ export default function Home() {
                 <FaCompass className="text-3xl mx-auto mb-2 text-green-300 group-hover:text-green-200 transition" />
                 <p className="text-sm text-gray-100">If you are lost, we show you the way</p>
               </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 hover:bg-white/20 transition group">
+                <FaCompass className="text-3xl mx-auto mb-2 text-green-300 group-hover:text-green-200 transition" />
+                <p className="text-sm text-gray-100">If you are alone, we are with you</p>
+              </div>
             </div>
             <p className="mt-8 text-lg font-semibold">Vidya Classes Dedicated to Give You the Best Education</p>
           </div>
@@ -464,7 +481,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
-              Why Choose Us?
+              Why Choose Vidya Coaching Classes?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               What makes Vidya Coaching Classes the right choice for your child's education
@@ -475,11 +492,11 @@ export default function Home() {
             {features.map((feature, idx) => {
               const Icon = feature.icon;
               return (
-                <div
-                  key={idx}
-                  className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 text-center group hover:-translate-y-1"
-                >
-                  <div
+              <div
+                key={idx}
+                className={`bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 text-center group hover:-translate-y-1`}
+              >
+              <div
                     className={`bg-gradient-to-r ${feature.color} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition`}
                   >
                     <Icon size={28} className="text-white" />
@@ -537,7 +554,7 @@ export default function Home() {
       {/* FINAL CTA */}
       <section className="py-16 text-center">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Your Journey?</h2>
+          <h2 className="text-3xl font-bold mb-4">Join Vidya Coaching Classes Today</h2>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
             Join thousands of successful students who have achieved their academic goals with Vidya Coaching Classes
           </p>
@@ -546,7 +563,10 @@ export default function Home() {
           </Link>
         </div>
       </section>
-
+      <p className="text-gray-600 max-w-2xl mx-auto text-center mt-4">
+        Vidya Coaching Classes provides the best coaching classes for school students,
+        helping them excel in exams with structured learning and regular tests.
+      </p>
       <Footer />
     </div>
   );
