@@ -1,7 +1,7 @@
 import sys
 sys.path.insert(0, '/home/ubuntu/EDUCATION-WEBSITE/backend')
 
-from app.services.email_service import send_email
+from app.services.service import send_email
 from app.core.config import settings
 
 async def test_email():

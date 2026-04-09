@@ -13,8 +13,16 @@ const navigation = [
   { name: 'Fees', href: '/fees' },
   { name: 'Gallery', href: '/gallery' },
   { name: 'Blog', href: '/blog' },
+  { name: 'Reviews', href: '/reviews'},  
   { name: 'Contact', href: '/contact' },
+  
 ];
+
+
+const showAdmin = process.env.NEXT_PUBLIC_SHOW_ADMIN === 'true';
+if (showAdmin) {
+  navigation.push({ name: 'Admin', href: '/admin' });
+}
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

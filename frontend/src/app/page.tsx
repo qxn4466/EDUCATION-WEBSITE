@@ -45,6 +45,7 @@ export default function Home() {
     { name: 'Admissions', href: '/Admissions', color: 'text-red-600', hoverColor: 'hover:text-red-700', bgColor: 'bg-red-600' },
     { name: 'Gallery', href: '/gallery', color: 'text-pink-600', hoverColor: 'hover:text-pink-700', bgColor: 'bg-pink-600' },
     { name: 'Blog', href: '/blog', color: 'text-indigo-600', hoverColor: 'hover:text-indigo-700', bgColor: 'bg-indigo-600' },
+    { name: 'Reviews', href: '/reviews', color: 'text-yellow-600', hoverColor: 'hover:text-yellow-700', bgColor: 'bg-yellow-600' },    
     { name: 'Contact', href: '/contact', color: 'text-teal-600', hoverColor: 'hover:text-teal-700', bgColor: 'bg-teal-600' },
   ];
 
@@ -217,13 +218,14 @@ export default function Home() {
 
               {/* Title */}
               <div className="text-center mt-10">
-                <h1 className="text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 bg-clip-text text-transparent">
-                  Vidya Coaching Classes
+                <h1 className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-600 via-green-400 to-orange-400 bg-clip-text text-transparent">
+                  Best Coaching Classes in Anjaneya Nagar, Belagavi and Shahapur circle, Belagavi for 6th to 10th (State, CBSE & ICSE)
                 </h1>
                   <p className="text-center text-gray-700 mt-4 max-w-2xl mx-auto">
-                    Vidya Coaching Classes is one of the best tuition classes providing quality education
-                    for students from 6th to 10th standard. Our coaching classes focus on strong fundamentals,
-                    experienced teachers, and personalized attention to help students achieve academic success.
+                     Vidya Coaching Classes is one of the best tuition centers in Anjaneya Nagar, Belagavi, and  Shahapur circle, Belagavi 
+                     offering high-quality coaching for students from 6th to 10th standard. We provide specialized training for State, CBSE, 
+                     and ICSE syllabus with a focus on strong fundamentals, exam preparation, and personalized attention.
+                     Our experienced teachers ensure every student achieves academic success with confidence.
                   </p>                
                   <div className="flex justify-center gap-6 mt-3">
                   <span className="text-blue-600 font-semibold text-base">TRUST</span>

@@ -49,6 +49,7 @@ export default function Footer() {
               <li><Link href="/gallery" prefetch={false} className="text-gray-400 hover:text-pink-400 transition text-sm">Gallery</Link></li>
               <li><Link href="/blog" prefetch={false} className="text-gray-400 hover:text-indigo-400 transition text-sm">Blog</Link></li>
               <li><Link href="/contact" prefetch={false} className="text-gray-400 hover:text-teal-400 transition text-sm">Contact</Link></li>
+              <li><Link href="/admin" className="text-gray-500 hover:text-gray-300 transition text-xs">Admin Panel</Link></li>
             </ul>
           </div>
           {/* Contact Info */}

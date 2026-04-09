@@ -9,6 +9,9 @@ class Settings(BaseSettings):
     RESEND_API_KEY: str = "re_e4ZJUh1K_CP39nuHd4XnTu8b5U7js34w4"
     ADMIN_EMAIL: str = "vidyaclassesbgm@gmail.com"
 
+    # Admin
+    ADMIN_SECRET: str = "vidya@123"
+
     # App                                                                   
     APP_NAME: str = "Vidya Classes"
     DEBUG: bool = False
