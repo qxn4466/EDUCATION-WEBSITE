@@ -58,13 +58,22 @@ export default function EnquiryForm() {
 
       <div>
         <label className="block text-gray-700 font-semibold mb-2 text-sm">Phone Number *</label>
-        <input
-          type="tel"
-          {...register('phone')}
-          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
-          placeholder="Your phone number"
-        />
-        {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>}
+<input
+  type="tel"
+  {...register('phone', {
+    required: 'Phone number is required',
+    validate: (value) =>
+      /^[0-9]{10}$/.test(value) || 'Enter a valid 10-digit phone number'
+  })}
+  maxLength={10}
+  inputMode="numeric"
+  onChange={(e) => {
+    const onlyNums = e.target.value.replace(/\D/g, '').slice(0, 10);
+    e.target.value = onlyNums;
+  }}
+  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
+  placeholder="Enter 10-digit phone number"
+/>        {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>}
       </div>
 
       <div>
