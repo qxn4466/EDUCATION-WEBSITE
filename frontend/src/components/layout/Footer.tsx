@@ -64,14 +64,14 @@ export default function Footer() {
                 <FaPhone className="text-blue-400" />
                 <span>+91 7997687099</span>
               </li>
-             
+
               <li className="flex items-center gap-3 text-gray-400 text-sm">
                 <FaEnvelope className="text-orange-400" />
                 <span>vidyaclassesbgm@gmail.com</span>
               </li>
               <li className="flex items-start gap-3 text-gray-400 text-sm">
                 <FaMapMarkerAlt className="text-purple-400 mt-1" />
-                <span>Edurshetty Arcade, Beside Reliance Smart Market, Datta Circle, Anjaneya Nagar, Belagavi</span>
+                <span>Heddurshetti Arcade, Beside Reliance Smart Market, Datta Circle, Anjaneya Nagar, Belagavi</span>
               </li>
 
               <li className="flex items-start gap-3 text-gray-400 text-sm">

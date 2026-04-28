@@ -17,14 +17,18 @@ interface GalleryImage {
 
 // Gallery items with both image paths and fallback icons
 const galleryItems: GalleryImage[] = [
-  { id: 1, url: "/images/gallery/image5.jpg", title: "Achievement", category: "Achievements", icon: "📚", color: "from-blue-500 to-blue-600" },
-  { id: 2, url: "/images/gallery/image6.jpg", title: "Annual Workshop", category: "Events", icon: "🎯", color: "from-green-500 to-green-600" },
-  { id: 3, url: "/images/gallery/image7.jpg", title: "Science Exhibition", category: "Activities", icon: "🔬", color: "from-purple-500 to-purple-600" },
-  { id: 4, url: "/images/gallery/image8.jpg", title: "Coaching environment", category: "Classes", icon: "⚽", color: "from-green-500 to-green-600" },
-  { id: 5, url: "/images/gallery/image9.jpg", title: "Award Ceremony", category: "Achievements", icon: "🏆", color: "from-yellow-500 to-orange-500" },
-  { id: 6, url: "/images/gallery/image10.jpg", title: "Interactive classroom Session", category: "Classes", icon: "📖", color: "from-blue-500 to-blue-600" },
-  { id: 7, url: "/images/gallery/image11.jpg", title: "Science Lab", category: "Facilities", icon: "🧪", color: "from-pink-500 to-red-500" },
-  { id: 8, url: "/images/gallery/image12.jpg", title: "Educational Field Trip", category: "Activities", icon: "🚌", color: "from-purple-500 to-purple-600" },
+  { id: 1, url: "/images/gallery/edit-1.jpg", title: "2026 Results - Top Achievers", category: "Achievements", icon: "🏆", color: "from-yellow-500 to-orange-500" },
+  { id: 2, url: "/images/gallery/edit-2.jpg", title: "Result sucess Party & Celebration", category: "Events", icon: "🎉", color: "from-red-500 to-pink-500" },
+  { id: 3, url: "/images/gallery/edit-3.jpg", title: "Toppers Felicitation Ceremony", category: "Achievements", icon: "⭐", color: "from-purple-500 to-indigo-500" },
+  { id: 4, url: "/images/gallery/edit-4.jpg", title: "2026 Result Success Announcement", category: "Events", icon: "🥳", color: "from-green-500 to-teal-500" },
+  { id: 5, url: "/images/gallery/image5.jpg", title: "Achievement", category: "Achievements", icon: "📚", color: "from-blue-500 to-blue-600" },
+  { id: 6, url: "/images/gallery/image6.jpg", title: "Annual Workshop", category: "Events", icon: "🎯", color: "from-green-500 to-green-600" },
+  { id: 7, url: "/images/gallery/image7.jpg", title: "Science Exhibition", category: "Activities", icon: "🔬", color: "from-purple-500 to-purple-600" },
+  { id: 8, url: "/images/gallery/image8.jpg", title: "Coaching environment", category: "Classes", icon: "⚽", color: "from-green-500 to-green-600" },
+  { id: 9, url: "/images/gallery/image9.jpg", title: "Award Ceremony", category: "Achievements", icon: "🏆", color: "from-yellow-500 to-orange-500" },
+  { id: 10, url: "/images/gallery/image10.jpg", title: "Interactive classroom Session", category: "Classes", icon: "📖", color: "from-blue-500 to-blue-600" },
+  { id: 11, url: "/images/gallery/image11.jpg", title: "Science Lab", category: "Facilities", icon: "🧪", color: "from-pink-500 to-red-500" },
+  { id: 12, url: "/images/gallery/image12.jpg", title: "Educational Field Trip", category: "Activities", icon: "🚌", color: "from-purple-500 to-purple-600" },
 ];
 
 const categories: string[] = ["All", "Classes", "Events", "Activities", "Achievements", "Facilities"];
@@ -35,8 +39,8 @@ export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({});
 
-  const filteredItems = activeCategory === "All" 
-    ? galleryItems 
+  const filteredItems = activeCategory === "All"
+    ? galleryItems
     : galleryItems.filter(item => item.category === activeCategory);
 
   const handleBack = () => {
@@ -76,7 +80,7 @@ export default function GalleryPage() {
           </div>
 
           <h1 className="text-3xl md:text-3xl lg:text-5xl font-bold text-center mb-4 text-blue-800 drop-shadow-lg">Our Gallery</h1>
-          <p className="text-lg md:text-xl text-center max-w-3xl mx-auto text-blue-800 font-semibold drop-shadow-lg mb-6">  
+          <p className="text-lg md:text-xl text-center max-w-3xl mx-auto text-blue-800 font-semibold drop-shadow-lg mb-6">
             Capturing moments of learning, growth, and celebration
           </p>
         </div>
@@ -129,11 +133,10 @@ export default function GalleryPage() {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-3 md:px-6 py-1.5 md:py-2 rounded-full font-semibold transition text-sm md:text-base ${
-                activeCategory === category
-                  ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
+              className={`px-3 md:px-6 py-1.5 md:py-2 rounded-full font-semibold transition text-sm md:text-base ${activeCategory === category
+                ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg"
+                : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
             >
               {category}
             </button>
@@ -144,7 +147,7 @@ export default function GalleryPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
           {filteredItems.map((item) => {
             const hasError = imageErrors[item.id];
-            
+
             return (
               <div
                 key={item.id}

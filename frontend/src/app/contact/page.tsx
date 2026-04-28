@@ -42,8 +42,11 @@ export default function ContactPage() {
 
       {/* Hero Section */}
       <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white overflow-visible">
-        <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
+        {/* <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div> */}
+
+        <div className="absolute top-0 left-0 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-20 pointer-events-none"></div>
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-orange-100 rounded-full blur-3xl opacity-20 pointer-events-none"></div>
 
         <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
           {/* Image at top center */}
@@ -137,7 +140,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="font-semibold text-gray-800">Address</p>
-                  <p className="text-gray-600">Edurshetty Arcade, Beside Reliance Smart Market,</p>
+                  <p className="text-gray-600">Heddurshetti Arcade, Beside Reliance Smart Market,</p>
                   <p className="text-gray-600">Datta Circle, Anjaneya Nagar, Belagavi</p>
                 </div>
                 <div>

@@ -45,7 +45,7 @@ export default function Home() {
     { name: 'Admissions', href: '/Admissions', color: 'text-red-600', hoverColor: 'hover:text-red-700', bgColor: 'bg-red-600' },
     { name: 'Gallery', href: '/gallery', color: 'text-pink-600', hoverColor: 'hover:text-pink-700', bgColor: 'bg-pink-600' },
     { name: 'Blog', href: '/blog', color: 'text-indigo-600', hoverColor: 'hover:text-indigo-700', bgColor: 'bg-indigo-600' },
-    { name: 'Reviews', href: '/reviews', color: 'text-yellow-600', hoverColor: 'hover:text-yellow-700', bgColor: 'bg-yellow-600' },    
+    { name: 'Reviews', href: '/reviews', color: 'text-yellow-600', hoverColor: 'hover:text-yellow-700', bgColor: 'bg-yellow-600' },
     { name: 'Contact', href: '/contact', color: 'text-teal-600', hoverColor: 'hover:text-teal-700', bgColor: 'bg-teal-600' },
   ];
 
@@ -154,10 +154,10 @@ export default function Home() {
           {/* DESKTOP LAYOUT */}
           <div className="hidden lg:block">
             <div className="flex flex-col items-center justify-center">
-            <div
-              className="flex items-center justify-center gap-8 w-full max-w-6xl mx-auto"
-              style={{ height: 'clamp(300px, 35vw, 380px)' }}
-            >
+              <div
+                className="flex items-center justify-center gap-8 w-full max-w-6xl mx-auto"
+                style={{ height: 'clamp(300px, 35vw, 380px)' }}
+              >
                 {/* Left Square Image */}
                 <div className="flex-shrink-0 h-full">
                   <div className="relative h-full aspect-square rounded-2xl overflow-hidden shadow-2xl ring-4 ring-white/30">
@@ -177,38 +177,37 @@ export default function Home() {
                 </div>
 
                 {/* Slider */}
-              <div className="flex-1 max-w-2xl h-full">
-                <div className="relative h-full rounded-xl overflow-hidden shadow-xl bg-gradient-to-r from-blue-600 via-green-600 to-orange-600">
-                  
-                  <div className="relative w-full h-full overflow-hidden">  {/* ✅ important */}
-                    
-                    <div
-                      className="flex w-full h-full transition-transform duration-700 ease-in-out"
-                      style={{ transform: `translateX(-${index * 100}%)` }}
-                    >
-                    {images.map((img, i) => (
-                      <div key={img} className="basis-full flex-shrink-0 relative h-full px-[2px]">
-                        <Image
-                          src={img}
-                          alt="Education"
-                          fill
-                          className="object-contain"
-                          priority={i === 0}
-                        />
+                <div className="flex-1 max-w-2xl h-full">
+                  <div className="relative h-full rounded-xl overflow-hidden shadow-xl bg-gradient-to-r from-blue-600 via-green-600 to-orange-600">
+
+                    <div className="relative w-full h-full overflow-hidden">  {/* ✅ important */}
+
+                      <div
+                        className="flex w-full h-full transition-transform duration-700 ease-in-out"
+                        style={{ transform: `translateX(-${index * 100}%)` }}
+                      >
+                        {images.map((img, i) => (
+                          <div key={img} className="basis-full flex-shrink-0 relative h-full px-[2px]">
+                            <Image
+                              src={img}
+                              alt="Education"
+                              fill
+                              className="object-contain"
+                              priority={i === 0}
+                            />
+                          </div>
+                        ))}
                       </div>
-                    ))}
+
                     </div>
 
-                  </div>
-
-                  <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-10">
+                    <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2 z-10">
                       {images.map((img, i) => (
                         <button
                           key={img}
                           onClick={() => setIndex(i)}
-                          className={`h-1.5 w-1.5 rounded-full transition-all ${
-                            i === index ? 'bg-white scale-125 w-4' : 'bg-white/60'
-                          }`}
+                          className={`h-1.5 w-1.5 rounded-full transition-all ${i === index ? 'bg-white scale-125 w-4' : 'bg-white/60'
+                            }`}
                         />
                       ))}
                     </div>
@@ -221,13 +220,13 @@ export default function Home() {
                 <h1 className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-600 via-green-400 to-orange-400 bg-clip-text text-transparent">
                   Best Coaching Classes in Anjaneya Nagar, Belagavi and Shahapur circle, Belagavi for 6th to 10th (State, CBSE & ICSE)
                 </h1>
-                  <p className="text-center text-gray-700 mt-4 max-w-2xl mx-auto">
-                     Vidya Coaching Classes is one of the best tuition centers in Anjaneya Nagar, Belagavi, and  Shahapur circle, Belagavi 
-                     offering high-quality coaching for students from 6th to 10th standard. We provide specialized training for State, CBSE, 
-                     and ICSE syllabus with a focus on strong fundamentals, exam preparation, and personalized attention.
-                     Our experienced teachers ensure every student achieves academic success with confidence.
-                  </p>                
-                  <div className="flex justify-center gap-6 mt-3">
+                <p className="text-center text-gray-700 mt-4 max-w-2xl mx-auto">
+                  Vidya Coaching Classes is one of the best tuition centers in Anjaneya Nagar, Belagavi, and  Shahapur circle, Belagavi
+                  offering high-quality coaching for students from 6th to 10th standard. We provide specialized training for State, CBSE,
+                  and ICSE syllabus with a focus on strong fundamentals, exam preparation, and personalized attention.
+                  Our experienced teachers ensure every student achieves academic success with confidence.
+                </p>
+                <div className="flex justify-center gap-6 mt-3">
                   <span className="text-blue-600 font-semibold text-base">TRUST</span>
                   <span className="text-green-600 font-semibold text-base">SUCCESS</span>
                   <span className="text-orange-600 font-semibold text-base">CARE</span>
@@ -292,9 +291,8 @@ export default function Home() {
                     <button
                       key={img}
                       onClick={() => setIndex(i)}
-                      className={`h-1.5 w-1.5 rounded-full transition-all ${
-                        i === index ? 'bg-white scale-125 w-4' : 'bg-white/60'
-                      }`}
+                      className={`h-1.5 w-1.5 rounded-full transition-all ${i === index ? 'bg-white scale-125 w-4' : 'bg-white/60'
+                        }`}
                     />
                   ))}
                 </div>
@@ -349,8 +347,8 @@ export default function Home() {
               </div>
               <p className="text-teal-800 text-base md:text-lg font-semibold">If you are alone,</p>
               <p className="text-teal-600 text-lg md:text-xl font-bold">we are with you</p>
-            </div>    
             </div>
+          </div>
 
           {/* ADMISSION CARD */}
           <div className="max-w-4xl mx-auto bg-gradient-to-r from-blue-50 via-green-50 to-orange-50 rounded-2xl shadow-xl p-8 md:p-10 mb-10 text-center">
@@ -377,7 +375,7 @@ export default function Home() {
           </div>
 
           {/* CTA BUTTONS */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6 relative z-10">
             <Link
               href="/contact"
               className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold flex items-center justify-center gap-2 hover:scale-105 transition text-base md:text-lg shadow-lg"
@@ -492,11 +490,11 @@ export default function Home() {
             {features.map((feature, idx) => {
               const Icon = feature.icon;
               return (
-              <div
-                key={idx}
-                className={`bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 text-center group hover:-translate-y-1`}
-              >
-              <div
+                <div
+                  key={idx}
+                  className={`bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 text-center group hover:-translate-y-1`}
+                >
+                  <div
                     className={`bg-gradient-to-r ${feature.color} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition`}
                   >
                     <Icon size={28} className="text-white" />
