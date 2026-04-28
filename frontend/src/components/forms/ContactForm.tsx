@@ -30,6 +30,7 @@ export default function ContactForm() {
     setSubmitStatus('loading');
     try {
       const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/contact`, data);
+      console.log("sending : ", data);
       if (response.status === 201) {
         setSubmitStatus('success');
         reset();
