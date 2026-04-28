@@ -17,7 +17,7 @@ export default function ReviewForm() {
     e.preventDefault();
     setStatus('loading');
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/reviews`, formData);
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/reviews`, formData);
       setStatus('success');
       setFormData({ name: '', rating: 5, comment: '' });
       setTimeout(() => setStatus('idle'), 5000);
@@ -54,11 +54,10 @@ export default function ReviewForm() {
               className="focus:outline-none"
             >
               <FaStar
-                className={`text-3xl transition ${
-                  (hoverRating || formData.rating) >= star
-                    ? 'text-yellow-400'
-                    : 'text-gray-300'
-                }`}
+                className={`text-3xl transition ${(hoverRating || formData.rating) >= star
+                  ? 'text-yellow-400'
+                  : 'text-gray-300'
+                  }`}
               />
             </button>
           ))}

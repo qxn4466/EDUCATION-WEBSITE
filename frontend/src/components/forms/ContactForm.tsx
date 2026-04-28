@@ -16,7 +16,7 @@ type ContactFormData = z.infer<typeof contactSchema>;
 
 export default function ContactForm() {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  
+
   const {
     register,
     handleSubmit,
@@ -29,7 +29,7 @@ export default function ContactForm() {
   const onSubmit = async (data: ContactFormData) => {
     setSubmitStatus('loading');
     try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/contact`, data);
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/contact`, data);
       if (response.status === 201) {
         setSubmitStatus('success');
         reset();
@@ -63,23 +63,23 @@ export default function ContactForm() {
         <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
           Phone Number *
         </label>
-          <input
-            type="tel"
-            {...register('phone', {
-              required: 'Phone number is required',
-              validate: (value) =>
-                /^[0-9]{10}$/.test(value) || 'Enter a valid 10-digit phone number'
-            })}
-            maxLength={10}
-            inputMode="numeric"
-            onChange={(e) => {
-              const onlyNums = e.target.value.replace(/\D/g, '').slice(0, 10);
-              e.target.value = onlyNums;
-            }}
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
-            placeholder="Enter 10-digit phone number"
-          />        
-          {errors.phone && (
+        <input
+          type="tel"
+          {...register('phone', {
+            required: 'Phone number is required',
+            validate: (value) =>
+              /^[0-9]{10}$/.test(value) || 'Enter a valid 10-digit phone number'
+          })}
+          maxLength={10}
+          inputMode="numeric"
+          onChange={(e) => {
+            const onlyNums = e.target.value.replace(/\D/g, '').slice(0, 10);
+            e.target.value = onlyNums;
+          }}
+          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
+          placeholder="Enter 10-digit phone number"
+        />
+        {errors.phone && (
           <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
         )}
       </div>

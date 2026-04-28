@@ -17,7 +17,7 @@ export default function ContactPage() {
     e.preventDefault();
     setStatus('loading');
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/contact`, formData);
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/contact`, formData);
       setStatus('success');
       setFormData({ name: '', phone: '', message: '' });
       setTimeout(() => setStatus(''), 5000);
@@ -44,7 +44,7 @@ export default function ContactPage() {
       <div className="relative bg-gradient-to-r from-blue-600 via-green-600 to-orange-600 text-white overflow-visible">
         <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-72 h-72 bg-white/10 rounded-full blur-3xl"></div>
-        
+
         <div className="container mx-auto px-4 py-12 md:py-16 relative z-10">
           {/* Image at top center */}
           <div className="flex justify-center mb-4">
@@ -57,13 +57,13 @@ export default function ContactPage() {
               />
             </div>
           </div>
-          
+
           <h1 className="text-3xl md:text-3xl lg:text-5xl font-bold text-center mb-4 text-blue-800 drop-shadow-lg">Contact Us</h1>
-          <p className="text-lg md:text-xl text-center max-w-3xl mx-auto text-blue-800 font-semibold drop-shadow-lg mb-6"> 
+          <p className="text-lg md:text-xl text-center max-w-3xl mx-auto text-blue-800 font-semibold drop-shadow-lg mb-6">
             Get in touch with us for any queries or admissions
           </p>
         </div>
-        
+
         <div className="absolute bottom-0 left-0 w-full">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-auto">
             <path fill="#ffffff" fillOpacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
@@ -119,7 +119,7 @@ export default function ContactPage() {
                 <div>
                   <p className="font-semibold text-gray-800">Phone</p>
                   <p className="text-gray-600">+91 87123 46960</p>
-                  <p className="text-gray-600">+91 7997687099</p>                  
+                  <p className="text-gray-600">+91 7997687099</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -196,23 +196,23 @@ export default function ContactPage() {
                   required
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
                   value={formData.name}
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Enter your full name"
                 />
               </div>
               <div>
                 <label className="block text-gray-700 font-semibold mb-2 text-sm">Phone Number *</label>
-<input
-  type="tel"
-  required
-  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
-  value={formData.phone}
-  onChange={(e) => {
-    const value = e.target.value.replace(/\D/g, '').slice(0, 10);
-    setFormData({ ...formData, phone: value });
-  }}
-  placeholder="Enter your phone number"
-/>              </div>
+                <input
+                  type="tel"
+                  required
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
+                  value={formData.phone}
+                  onChange={(e) => {
+                    const value = e.target.value.replace(/\D/g, '').slice(0, 10);
+                    setFormData({ ...formData, phone: value });
+                  }}
+                  placeholder="Enter your phone number"
+                />              </div>
               <div>
                 <label className="block text-gray-700 font-semibold mb-2 text-sm">Your Message *</label>
                 <textarea
@@ -220,7 +220,7 @@ export default function ContactPage() {
                   rows={5}
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition resize-none"
                   value={formData.message}
-                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Tell us how we can help you..."
                 ></textarea>
               </div>
