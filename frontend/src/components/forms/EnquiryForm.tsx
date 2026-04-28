@@ -30,8 +30,8 @@ export default function EnquiryForm() {
   const onSubmit = async (data: EnquiryFormData) => {
     setSubmitStatus('loading');
     try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/enquiries`, data);
       console.log("sending: ", data);
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/enquiries`, data);
       if (response.status === 201) {
         setSubmitStatus('success');
         reset();
